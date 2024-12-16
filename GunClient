@@ -1,1050 +1,314 @@
-Name = GunClient
-Class = LocalScript
-Path = Players.CMKiNoVN.Backpack.Gun.GunClient
+Name = BulletCountModule
+Class = ModuleScript
+Path = Players.CMKiNoVN.PlayerScripts.ProjectilesClient.WeaponScript.BulletCountModule
 
-GETIMPORT		0		var0 = task["wait"] -- [REDUNDANT]
-LOADK			2		var1 = 0.5 -- [REDUNDANT]
-CALL			3		var0 = var0(var1)
-GETIMPORT		4		var0 = game -- [REDUNDANT]
-LOADK			6		var2 = "UserInputService" -- [REDUNDANT]
-NAMECALL		7		var0 = var0:GetService(var2)
-GETIMPORT		9		var1 = game -- [REDUNDANT]
-LOADK			11		var3 = "HttpService" -- [REDUNDANT]
-NAMECALL		12		var1 = var1:GetService(var3)
-GETIMPORT		14		var2 = game -- [REDUNDANT]
-LOADK			16		var4 = "RunService" -- [REDUNDANT]
-NAMECALL		17		var2 = var2:GetService(var4)
-GETIMPORT		19		var4 = script -- [REDUNDANT]
-GETTABLEKS		21		var3 = var4["Parent"] -- [REDUNDANT]
-LOADK			23		var5 = "Handle" -- [REDUNDANT]
-NAMECALL		24		var3 = var3:WaitForChild(var5)
-GETIMPORT		26		var5 = script -- [REDUNDANT]
-GETTABLEKS		28		var4 = var5["Parent"] -- [REDUNDANT]
-LOADK			30		var6 = "GunServer" -- [REDUNDANT]
-NAMECALL		31		var4 = var4:WaitForChild(var6)
-GETIMPORT		33		var6 = script -- [REDUNDANT]
-GETTABLEKS		35		var5 = var6["Parent"] -- [REDUNDANT]
-LOADK			37		var7 = "Animations" -- [REDUNDANT]
-NAMECALL		38		var5 = var5:WaitForChild(var7)
-GETIMPORT		40		var8 = game -- [REDUNDANT]
-GETTABLEKS		42		var7 = var8["Players"] -- [REDUNDANT]
-GETTABLEKS		44		var6 = var7["LocalPlayer"]
-GETTABLEKS		46		var7 = var6["Character"]
-JUMPIF			48		if not var7 then
-GETTABLEKS		0			var7 = var6["CharacterAdded"] -- [REDUNDANT]
-NAMECALL		2			var7 = var7:Wait()
-NAMECALL		3		end
-LOADK			49		var10 = "Humanoid"
-NAMECALL		50		var8 = var7:WaitForChild(var10)
-LOADK			52		var11 = "PlayerGui"
-NAMECALL		53		var9 = var6:WaitForChild(var11)
-LOADK			55		var11 = "HUD2"
-NAMECALL		56		var9 = var9:WaitForChild(var11)
-LOADNIL			58		var10 = nil
-LOADB			59		var11 = false
-LOADN			60		var12 = 0 -- [REDUNDANT]
-GETTABLEKS		61		var13 = var0["TouchEnabled"]
-NAMECALL		63		var14 = var6:GetMouse()
-GETIMPORT		65		var16 = require -- [REDUNDANT]
-GETIMPORT		67		var18 = script -- [REDUNDANT]
-GETTABLEKS		69		var17 = var18["Parent"] -- [REDUNDANT]
-LOADK			71		var19 = "Maid"
-NAMECALL		72		var17 = var17:WaitForChild(var19)
-CALL			74		var16 = var16(var17) -- [REDUNDANT]
-GETTABLEKS		75		var15 = var16["MakeMaid"] -- [REDUNDANT]
-MOVE			77		var16 = var15 -- [REDUNDANT]
-CALL			78		var16 = var16()
-LOADK			79		var19 = "ShootStart" -- [REDUNDANT]
-NAMECALL		80		var17 = var4:WaitForChild(var19)
-LOADK			82		var20 = "Lock" -- [REDUNDANT]
-NAMECALL		83		var18 = var4:WaitForChild(var20)
-DUPCLOSURE		85		local getCharacter = function(arg0) -- line: 44
-MOVE			0			var1 = arg0
-GETIMPORT		1			var3 = game -- [REDUNDANT]
-GETTABLEKS		3			var2 = var3["Players"] -- [REDUNDANT]
-MOVE			5			var4 = var1 -- [REDUNDANT]
-NAMECALL		6			var2 = var2:GetPlayerFromCharacter(var4)
-JUMPIF			8			while var2 do
-GETTABLEKS		0				var3 = var1["Parent"]
-JUMPIFNOT		2				if var3 then
-GETTABLEKS		0					var1 = var1["Parent"] -- [REDUNDANT]
-GETIMPORT		2					var4 = game -- [REDUNDANT]
-GETTABLEKS		4					var3 = var4["Players"] -- [REDUNDANT]
-MOVE			6					var5 = var1 -- [REDUNDANT]
-NAMECALL		7					var3 = var3:GetPlayerFromCharacter(var5)
-MOVE			9					var2 = var3
-MOVE			9				else
-LOADNIL			0					var3 = nil -- [REDUNDANT]
-RETURN			1					return var3
-RETURN			1				end
-RETURN			1			end
-RETURN			1		end
-DUPCLOSURE		86		local getHumanoid = function(arg0) -- line: 60
-LOADK			0			var3 = "Humanoid" -- [REDUNDANT]
-NAMECALL		1			var1 = arg0:FindFirstChild(var3)
-JUMPIFNOT		3			if var1 then
-LOADK			0				var4 = "Humanoid" -- [REDUNDANT]
-NAMECALL		1				var2 = var1:IsA(var4)
-JUMPIFNOT		3				if var2 then
-RETURN			0					return var1
-RETURN			0				end
-GETIMPORT		4				var2 = pairs -- [REDUNDANT]
-NAMECALL		6				var3 = arg0:GetChildren()
-CALL			8				var2, var3, var4 = var2(var3)
-FORGPREP_NEXT	9				for var5, var6 in var2, var3, var4 do
-GETTABLEKS		0					var7 = var6["Name"] -- [REDUNDANT]
-JUMPXEQKS		2					if var7 == "Humanoid" then
-LOADK			0						var9 = "Humanoid" -- [REDUNDANT]
-NAMECALL		1						var7 = var6:IsA(var9)
-JUMPIFNOT		3						if var7 then
-RETURN			0							return var6
-RETURN			0						end
-RETURN			0					end
-JUMPXEQKS		3				end
-FORGLOOP		10			end
-GETTABLEKS		4			var2 = arg0["Parent"]
-JUMPIFNOT		6			if var2 then
-GETIMPORT		0				var4 = workspace -- [REDUNDANT]
-NAMECALL		2				var2 = arg0:IsDescendantOf(var4)
-JUMPIFNOT		4				if var2 then
-GETTABLEKS		0					var0 = arg0["Parent"]
-GETTABLEKS		1				end
-GETTABLEKS		1			else
-LOADNIL			0				var2 = nil -- [REDUNDANT]
-RETURN			1				return var2
-RETURN			1			end
-RETURN			7			return 
-RETURN			7		end
-DUPCLOSURE		87		local modify = function(arg0, arg1) -- line: 84
-MOVE			0			var5 = arg1 -- [REDUNDANT]
-GETIMPORT		1			var4 = type -- [REDUNDANT]
-CALL			3			var4 = var4(var5)
-JUMPXEQKS		4			if var4 == "table" then
-LOADB			0				var3 = false
-LOADB			0			end
-LOADB			6			var3 = true -- [REDUNDANT]
-LOADK			8			var4 = "Values is not a table"
-GETIMPORT		9			var2 = assert -- [REDUNDANT]
-CALL			11			var2 = var2(var3, var4)
-GETIMPORT		12			var2 = next -- [REDUNDANT]
-MOVE			14			var3 = arg1 -- [REDUNDANT]
-LOADNIL			15			var4 = nil -- [REDUNDANT]
-FORGPREP_NEXT	16			for var5, var6 in var2, var3, var4 do
-MOVE			0				var8 = var5 -- [REDUNDANT]
-GETIMPORT		1				var7 = type -- [REDUNDANT]
-CALL			3				var7 = var7(var8) -- [REDUNDANT]
-JUMPXEQKS		4				if var7 == "number" then
-SETTABLEKS		0					var6["Parent"] = arg0
-SETTABLEKS		1				else
-SETTABLE		0					arg0[var5] = var6
-SETTABLE		0				end
-JUMPXEQKS		5			end
-RETURN			18			return arg0
-RETURN			18		end
-DUPCLOSURE		88		local checkPlayer = function(arg0) -- line: 98
-MOVE			0			var1 = arg0
-JUMPIFNOT		1			if var1 then
-LOADK			0				var3 = "Player" -- [REDUNDANT]
-NAMECALL		1				var1 = arg0:IsA(var3)
-JUMPIFNOT		3				if var1 then
-GETIMPORT		0					var4 = game -- [REDUNDANT]
-GETTABLEKS		2					var3 = var4["Players"] -- [REDUNDANT]
-NAMECALL		4					var1 = arg0:IsDescendantOf(var3)
-NAMECALL		5				end
-NAMECALL		5			end
-RETURN			2			return var1
-RETURN			2		end
-DUPCLOSURE		89		local checkCharacter = function(arg0) -- line: 102
-MOVE			0			var1 = arg0
-JUMPIFNOT		1			if var1 then
-LOADK			0				var3 = "Player" -- [REDUNDANT]
-NAMECALL		1				var1 = arg0:IsA(var3)
-JUMPIFNOT		3				if var1 then
-GETIMPORT		0					var4 = game -- [REDUNDANT]
-GETTABLEKS		2					var3 = var4["Players"] -- [REDUNDANT]
-NAMECALL		4					var1 = arg0:IsDescendantOf(var3)
-NAMECALL		5				end
-NAMECALL		5			end
-JUMPIFNOT		2			if var1 then
-GETTABLEKS		0				var1 = arg0["Character"]
-JUMPIFNOT		2				if var1 then
-GETTABLEKS		0					var2 = var1["Parent"]
-JUMPIFNOT		2					if var2 then
-LOADK			0						var4 = "Humanoid"
-NAMECALL		1						var2 = var1:FindFirstChild(var4)
-JUMPIFNOT		3						if var2 then
-LOADK			0							var4 = "HumanoidRootPart"
-NAMECALL		1							var2 = var1:FindFirstChild(var4)
-JUMPIFNOT		3							if var2 then
-LOADK			0								var4 = "UpperTorso"
-NAMECALL		1								var2 = var1:FindFirstChild(var4)
-JUMPIFNOT		3								if var2 then
-LOADK			0									var4 = "Head"
-NAMECALL		1									var2 = var1:FindFirstChild(var4)
-JUMPIFNOT		3									if var2 then
-GETTABLEKS		0										var2 = var1["Humanoid"] -- [REDUNDANT]
-LOADK			2										var4 = "Humanoid"
-NAMECALL		3										var2 = var2:IsA(var4)
-JUMPIFNOT		5										if var2 then
-GETTABLEKS		0											var2 = var1["Head"] -- [REDUNDANT]
-LOADK			2											var4 = "BasePart"
-NAMECALL		3											var2 = var2:IsA(var4)
-JUMPIFNOT		5											if var2 then
-GETTABLEKS		0												var2 = var1["UpperTorso"] -- [REDUNDANT]
-LOADK			2												var4 = "BasePart" -- [REDUNDANT]
-NAMECALL		3												var2 = var2:IsA(var4)
-JUMPIFNOT		5												if var2 then
-LOADB			0													var2 = true
-LOADB			0												end
-LOADB			0											end
-LOADB			0										end
-LOADB			0									end
-LOADB			0								end
-LOADB			0							end
-LOADB			0						end
-LOADB			0					end
-RETURN			3					return var2
-GETIMPORT		4					var1 = warn -- [REDUNDANT]
-LOADK			6					var2 = "Character check failed" -- [REDUNDANT]
-CALL			7					var1 = var1(var2)
-CALL			7				end
-CALL			7			else
-GETIMPORT		0				var1 = warn -- [REDUNDANT]
-LOADK			2				var2 = "Character check failed" -- [REDUNDANT]
-CALL			3				var1 = var1(var2)
-CALL			3			end
-CALL			3		end
-DUPCLOSURE		90		upvalue[1_modify] = modify
-DUPCLOSURE		91		local make = function(arg0, arg1) -- line: 124
-GETUPVAL		0			var2 = upvalue[upvalue[1_modify]] -- [REDUNDANT]
-GETIMPORT		1			var3 = Instance["new"] -- [REDUNDANT]
-MOVE			3			var4 = arg0 -- [REDUNDANT]
-CALL			4			var3 = var3(var4) -- [REDUNDANT]
-MOVE			5			var4 = arg1 -- [REDUNDANT]
-CALL			6			var2 = var2(var3, var4) -- [REDUNDANT]
-RETURN			7			return var2
-RETURN			7		end
-DUPCLOSURE		92		upvalue[1_checkCharacter] = checkCharacter
-DUPCLOSURE		93		upvalue[2_var6] = var6
-DUPCLOSURE		94		local getGripWeld = function() -- line: 128
-GETUPVAL		0			var0 = upvalue[upvalue[1_checkCharacter]] -- [REDUNDANT]
-GETUPVAL		1			var1 = upvalue[upvalue[2_var6]] -- [REDUNDANT]
-CALL			2			var0 = var0(var1) -- [REDUNDANT]
-JUMPIFNOT		3			if var0 then
-GETUPVAL		0				var1 = upvalue[upvalue[2_var6]] -- [REDUNDANT]
-GETTABLEKS		1				var0 = var1["Character"] -- [REDUNDANT]
-LOADK			3				var2 = "Right Hand" -- [REDUNDANT]
-NAMECALL		4				var0 = var0:FindFirstChild(var2)
-JUMPIFNOT		6				if var0 then
-GETUPVAL		0					var2 = upvalue[upvalue[2_var6]]
-GETTABLEKS		1					var1 = var2["Character"] -- [REDUNDANT]
-GETTABLEKS		3					var0 = var1["Right Hand"] -- [REDUNDANT]
-LOADK			5					var2 = "RightGrip" -- [REDUNDANT]
-NAMECALL		6					var0 = var0:FindFirstChild(var2)
-RETURN			8					return var0
-RETURN			8				end
-RETURN			8			end
-RETURN			4			return 
-RETURN			4		end
-NEWCLOSURE		95		upvalue[1_var11] = var11
-NEWCLOSURE		96		upvalue[2_var14] = var14
-NEWCLOSURE		97		upvalue[3_var17] = var17
-NEWCLOSURE		98		local shootGun = function(arg0) -- line: 136
-GETUPVAL		0			var1 = upvalue[upvalue[1_var11]]
-JUMPIF			1			if not var1 then
-LOADB			0				var1 = true
-SETUPVAL		1				upvalue[upvalue[1_var11]] = var1
-JUMPXEQKNIL		2				if arg0 == nil then
-GETUPVAL		0					var3 = upvalue[upvalue[2_var14]] -- [REDUNDANT]
-GETTABLEKS		1					var2 = var3["Hit"] -- [REDUNDANT]
-GETTABLEKS		3					var1 = var2["Position"] -- [REDUNDANT]
-JUMPIF			5					if not var1 then
-GETTABLEKS		0						var1 = arg0["Position"]
-GETTABLEKS		1					end
-GETTABLEKS		1				end
-GETUPVAL		4				var2 = upvalue[upvalue[3_var17]] -- [REDUNDANT]
-LOADN			5				var4 = 1 -- [REDUNDANT]
-MOVE			6				var5 = var1 -- [REDUNDANT]
-NAMECALL		7				var2 = var2:FireServer(var4, var5)
-GETIMPORT		9				var2 = task["wait"] -- [REDUNDANT]
-LOADK			11				var3 = 0.01
-CALL			12				var2 = var2(var3) -- [REDUNDANT]
-LOADB			13				var2 = false -- [REDUNDANT]
-SETUPVAL		14				upvalue[upvalue[1_var11]] = var2
-SETUPVAL		14			end
-RETURN			2			return 
-RETURN			2		end
-GETIMPORT		99		var29 = script
-GETTABLEKS		101		var28 = var29["Parent"]
-GETTABLEKS		103		var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		105		if var27 == "Gingerscope" then
-GETIMPORT		0			var29 = script -- [REDUNDANT]
-GETTABLEKS		2			var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4			var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6			if var27 == "Blue Gingerscope" then
-GETIMPORT		0				var29 = script -- [REDUNDANT]
-GETTABLEKS		2				var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4				var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6				if var27 == "Green Gingerscope" then
-GETIMPORT		0					var29 = script -- [REDUNDANT]
-GETTABLEKS		2					var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4					var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6					if var27 == "Gummy Gingerscope" then
-GETIMPORT		0						var29 = script -- [REDUNDANT]
-GETTABLEKS		2						var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4						var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6						if var27 == "Pink Gingerscope" then
-GETIMPORT		0							var29 = script -- [REDUNDANT]
-GETTABLEKS		2							var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4							var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6							if var27 == "Pinkout Gingerscope" then
-GETIMPORT		0								var29 = script -- [REDUNDANT]
-GETTABLEKS		2								var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4								var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6								if var27 == "Purple Gingerscope" then
-GETIMPORT		0									var29 = script -- [REDUNDANT]
-GETTABLEKS		2									var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4									var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6									if var27 == "Red Gingerscope" then
-GETIMPORT		0										var29 = script -- [REDUNDANT]
-GETTABLEKS		2										var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4										var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6										if var27 == "Sour Gingerscope" then
-GETIMPORT		0											var29 = script -- [REDUNDANT]
-GETTABLEKS		2											var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4											var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6											if var27 == "Silver Gingerscope" then
-GETIMPORT		0												var29 = script -- [REDUNDANT]
-GETTABLEKS		2												var28 = var29["Parent"] -- [REDUNDANT]
-GETTABLEKS		4												var27 = var28["Name"] -- [REDUNDANT]
-JUMPXEQKS		6												if var27 == "Chroma Gingerscope" then
-GETTABLEKS		0													var29 = var5["Idle"] -- [REDUNDANT]
-NAMECALL		2													var27 = var8:LoadAnimation(var29)
-MOVE			4													var10 = var27
-MOVE			4												end
-JUMPXEQKS		7											end
-JUMPXEQKS		7										end
-JUMPXEQKS		7									end
-JUMPXEQKS		7								end
-JUMPXEQKS		7							end
-JUMPXEQKS		7						end
-JUMPXEQKS		7					end
-JUMPXEQKS		7				end
-JUMPXEQKS		7			end
-JUMPXEQKS		7		end
-JUMPIFNOT		107		if var13 then
-GETTABLEKS		0			var27 = var9["Buttons2"]
-LOADB			2			var28 = true -- [REDUNDANT]
-SETTABLEKS		3			var27["Visible"] = var28
-SETTABLEKS		4		end
-NEWTABLE		108		var27 = {}
-NEWTABLE		110		var28 = {
-							[1] = "Equip";
-							[2] = "Shot";
-							[3] = "Kill";
-						} -- [REDUNDANT]
-NEWTABLE		116		var29 = {}
-GETIMPORT		118		var30 = pairs -- [REDUNDANT]
-MOVE			120		var31 = var28 -- [REDUNDANT]
-CALL			121		var30, var31, var32 = var30(var31)
-FORGPREP_NEXT	122		for var33, var34 in var30, var31, var32 do
-LOADK			0			var38 = "Sound_" -- [REDUNDANT]
-MOVE			1			var39 = var34 -- [REDUNDANT]
-CONCAT			2			var37 = var38 .. var39
-NAMECALL		3			var35 = var3:FindFirstChild(var37)
-JUMPIF			5			if not var35 then
-GETIMPORT		0				var36 = script -- [REDUNDANT]
-MOVE			2				var38 = var34 -- [REDUNDANT]
-NAMECALL		3				var36 = var36:WaitForChild(var38)
-NAMECALL		5				var36 = var36:Clone()
-MOVE			7				var35 = var36
-SETTABLEKS		8				var35["Parent"] = var3
-LOADK			10				var37 = "Sound_" -- [REDUNDANT]
-MOVE			11				var38 = var34 -- [REDUNDANT]
-CONCAT			12				var36 = var37 .. var38 -- [REDUNDANT]
-SETTABLEKS		13				var35["Name"] = var36
-SETTABLEKS		14			end
-SETTABLE		6			var29[var34] = var35
-SETTABLE		6		end
-DUPCLOSURE		124		upvalue[1_var29] = var29
-DUPCLOSURE		125		function var27.PlaySound(arg0, arg1)
-GETUPVAL		0			var3 = upvalue[upvalue[1_var29]]
-GETTABLE		1			var2 = var3[arg1] -- [REDUNDANT]
-JUMPIFNOT		2			if var2 then
-GETUPVAL		0				var3 = upvalue[upvalue[1_var29]] -- [REDUNDANT]
-GETTABLE		1				var2 = var3[arg1] -- [REDUNDANT]
-NAMECALL		2				var2 = var2:Play()
-RETURN			4				return 
-RETURN			4			end
-GETIMPORT		3			var2 = print -- [REDUNDANT]
-LOADK			5			var3 = "Could not find sound" -- [REDUNDANT]
-CALL			6			var2 = var2(var3)
-RETURN			7			return 
-RETURN			7		end
-GETIMPORT		127		var28 = workspace -- [REDUNDANT]
-LOADK			129		var30 = "LocalKnifeRender"
-NAMECALL		130		var28 = var28:FindFirstChild(var30)
-JUMPIF			132		if not var28 then
-DUPTABLE		0			var29 = {
-								["Name"] = "LocalKnifeRender";
-								["Archivable"] = false;
-							} -- [REDUNDANT]
-GETIMPORT		3			var30 = workspace -- [REDUNDANT]
-SETTABLEKS		5			var29["Parent"] = var30
-MOVE			9			var30 = modify -- [REDUNDANT]
-GETIMPORT		10			var31 = Instance["new"] -- [REDUNDANT]
-LOADK			12			var32 = "Camera" -- [REDUNDANT]
-CALL			13			var31 = var31(var32) -- [REDUNDANT]
-MOVE			14			var32 = var29 -- [REDUNDANT]
-CALL			15			var30 = var30(var31, var32) -- [REDUNDANT]
-MOVE			16			var28 = var30
-MOVE			16		end
-GETIMPORT		133		var29 = pairs -- [REDUNDANT]
-NAMECALL		135		var30 = var28:GetChildren()
-CALL			137		var29, var30, var31 = var29(var30)
-FORGPREP_NEXT	138		for var32, var33 in var29, var30, var31 do
-LOADNIL			0			var34 = nil -- [REDUNDANT]
-SETTABLEKS		1			var33["Parent"] = var34
-SETTABLEKS		2		end
-GETTABLEKS		140		var31 = var9["Buttons2"] -- [REDUNDANT]
-GETTABLEKS		142		var30 = var31["EquipGun"] -- [REDUNDANT]
-GETTABLEKS		144		var29 = var30["MouseButton1Click"] -- [REDUNDANT]
-DUPCLOSURE		146		upvalue[1_var6] = var6
-DUPCLOSURE		147		upvalue[2_var8] = var8
-DUPCLOSURE		148		var31 = function() -- line: 200
-GETIMPORT		0			var2 = script -- [REDUNDANT]
-GETTABLEKS		2			var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4			var0 = var1["Parent"] -- [REDUNDANT]
-GETUPVAL		6			var2 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
-GETTABLEKS		7			var1 = var2["Character"] -- [REDUNDANT]
-JUMPIFNOTEQ		9			if var0 == var1 then
-GETUPVAL		0				var0 = upvalue[upvalue[2_var8]] -- [REDUNDANT]
-NAMECALL		1				var0 = var0:UnequipTools()
-RETURN			3				return 
-RETURN			3			end
-GETUPVAL		11			var0 = upvalue[upvalue[2_var8]] -- [REDUNDANT]
-GETIMPORT		12			var3 = script -- [REDUNDANT]
-GETTABLEKS		14			var2 = var3["Parent"] -- [REDUNDANT]
-NAMECALL		16			var0 = var0:EquipTool(var2)
+NEWTABLE		0		var0 = {}
+GETIMPORT		2		var1 = require -- [REDUNDANT]
+GETIMPORT		4		var5 = game -- [REDUNDANT]
+GETTABLEKS		6		var4 = var5["ReplicatedStorage"] -- [REDUNDANT]
+GETTABLEKS		8		var3 = var4["Projectiles"] -- [REDUNDANT]
+GETTABLEKS		10		var2 = var3["ProjectileStatsModule"] -- [REDUNDANT]
+CALL			12		var1 = var1(var2)
+GETIMPORT		13		var2 = require -- [REDUNDANT]
+GETIMPORT		15		var5 = script -- [REDUNDANT]
+GETTABLEKS		17		var4 = var5["Parent"] -- [REDUNDANT]
+GETTABLEKS		19		var3 = var4["WeaponUIModule"] -- [REDUNDANT]
+CALL			21		var2 = var2(var3)
+GETIMPORT		22		var3 = require -- [REDUNDANT]
+GETIMPORT		24		var6 = script
+GETTABLEKS		26		var5 = var6["Parent"]
+GETTABLEKS		28		var4 = var5["WeaponAnimations"] -- [REDUNDANT]
+CALL			30		var3 = var3(var4)
+NEWTABLE		31		var4 = {}
+LOADN			33		var5 = 0
+LOADN			34		var6 = 0
+LOADB			35		var7 = false
+LOADB			36		var8 = false
+LOADNIL			37		var9 = nil -- [REDUNDANT]
+NEWCLOSURE		38		upvalue[1_var6] = var6
+NEWCLOSURE		39		upvalue[2_var2] = var2
+NEWCLOSURE		40		upvalue[3_var5] = var5
+NEWCLOSURE		41		local updateBulletText = function() -- line: 15
+GETUPVAL		0			var0 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
+JUMPXEQKN		1			if var0 == inf then
+GETUPVAL		0				var1 = upvalue[upvalue[2_var2]]
+GETTABLEKS		1				var0 = var1["setBulletText"] -- [REDUNDANT]
+LOADK			3				var1 = "" -- [REDUNDANT]
+CALL			4				var0 = var0(var1)
+RETURN			5				return 
+RETURN			5			end
+GETUPVAL		3			var1 = upvalue[upvalue[2_var2]] -- [REDUNDANT]
+GETTABLEKS		4			var0 = var1["setBulletText"] -- [REDUNDANT]
+GETUPVAL		6			var6 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
+GETIMPORT		7			var5 = tostring -- [REDUNDANT]
+CALL			9			var5 = var5(var6) -- [REDUNDANT]
+MOVE			10			var2 = var5 -- [REDUNDANT]
+LOADK			11			var3 = " / "
+GETUPVAL		12			var5 = upvalue[upvalue[3_var5]] -- [REDUNDANT]
+GETIMPORT		13			var4 = tostring -- [REDUNDANT]
+CALL			15			var4 = var4(var5) -- [REDUNDANT]
+CONCAT			16			var1 = var2 .. var4 -- [REDUNDANT]
+CALL			17			var0 = var0(var1)
 RETURN			18			return 
 RETURN			18		end
-NAMECALL		149		var29 = var29:Connect(var31)
-GETIMPORT		151		var31 = script -- [REDUNDANT]
-GETTABLEKS		153		var30 = var31["Parent"] -- [REDUNDANT]
-GETTABLEKS		155		var29 = var30["Equipped"] -- [REDUNDANT]
-NEWCLOSURE		157		upvalue[1_var10] = var10
-NEWCLOSURE		158		upvalue[2_var27] = var27
-NEWCLOSURE		159		upvalue[3_var14] = var14
-NEWCLOSURE		160		upvalue[4_var6] = var6
-NEWCLOSURE		161		upvalue[5_var16] = var16
-NEWCLOSURE		162		upvalue[6_var0] = var0
-NEWCLOSURE		163		upvalue[7_var11] = var11
-NEWCLOSURE		164		upvalue[8_var17] = var17
-NEWCLOSURE		165		upvalue[9_var13] = var13
-NEWCLOSURE		166		upvalue[10_var12] = var12
-NEWCLOSURE		167		var31 = function() -- line: 208
-GETIMPORT		0			var2 = script
-GETTABLEKS		2			var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4			var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6			if var0 == "Gingerscope" then
-GETIMPORT		0				var2 = script -- [REDUNDANT]
-GETTABLEKS		2				var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4				var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6				if var0 == "Blue Gingerscope" then
-GETIMPORT		0					var2 = script -- [REDUNDANT]
-GETTABLEKS		2					var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4					var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6					if var0 == "Green Gingerscope" then
-GETIMPORT		0						var2 = script -- [REDUNDANT]
-GETTABLEKS		2						var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4						var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6						if var0 == "Gummy Gingerscope" then
-GETIMPORT		0							var2 = script -- [REDUNDANT]
-GETTABLEKS		2							var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4							var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6							if var0 == "Pink Gingerscope" then
-GETIMPORT		0								var2 = script -- [REDUNDANT]
-GETTABLEKS		2								var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4								var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6								if var0 == "Pinkout Gingerscope" then
-GETIMPORT		0									var2 = script -- [REDUNDANT]
-GETTABLEKS		2									var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4									var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6									if var0 == "Purple Gingerscope" then
-GETIMPORT		0										var2 = script -- [REDUNDANT]
-GETTABLEKS		2										var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4										var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6										if var0 == "Red Gingerscope" then
-GETIMPORT		0											var2 = script -- [REDUNDANT]
-GETTABLEKS		2											var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4											var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6											if var0 == "Sour Gingerscope" then
-GETIMPORT		0												var2 = script -- [REDUNDANT]
-GETTABLEKS		2												var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4												var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6												if var0 == "Silver Gingerscope" then
-GETIMPORT		0													var2 = script -- [REDUNDANT]
-GETTABLEKS		2													var1 = var2["Parent"] -- [REDUNDANT]
-GETTABLEKS		4													var0 = var1["Name"] -- [REDUNDANT]
-JUMPXEQKS		6													if var0 == "Chroma Gingerscope" then
-GETUPVAL		0														var0 = upvalue[upvalue[1_var10]] -- [REDUNDANT]
-JUMPIFNOT		1														if var0 then
-GETUPVAL		0															var0 = upvalue[upvalue[1_var10]] -- [REDUNDANT]
-NAMECALL		1															var0 = var0:Play()
-NAMECALL		2														end
-NAMECALL		2													end
-JUMPXEQKS		7												end
-JUMPXEQKS		7											end
-JUMPXEQKS		7										end
-JUMPXEQKS		7									end
-JUMPXEQKS		7								end
-JUMPXEQKS		7							end
-JUMPXEQKS		7						end
-JUMPXEQKS		7					end
-JUMPXEQKS		7				end
-JUMPXEQKS		7			end
-GETUPVAL		8			var0 = upvalue[upvalue[2_var27]] -- [REDUNDANT]
-LOADK			9			var2 = "Equip"
-NAMECALL		10			var0 = var0:PlaySound(var2)
-GETUPVAL		12			var0 = upvalue[upvalue[3_var14]]
-LOADK			13			var2 = "rbxassetid://" -- [REDUNDANT]
-GETUPVAL		14			var5 = upvalue[upvalue[4_var6]]
-GETTABLEKS		15			var4 = var5["CursorID"] -- [REDUNDANT]
-GETTABLEKS		17			var3 = var4["Value"] -- [REDUNDANT]
-CONCAT			19			var1 = var2 .. var3 -- [REDUNDANT]
-SETTABLEKS		20			var0["Icon"] = var1
-GETUPVAL		22			var0 = upvalue[upvalue[5_var16]]
-GETUPVAL		23			var2 = upvalue[upvalue[6_var0]] -- [REDUNDANT]
-GETTABLEKS		24			var1 = var2["InputBegan"] -- [REDUNDANT]
-NEWCLOSURE		26			upvalue[1_upvalue[7_var11]] = upvalue[7_var11]
-NEWCLOSURE		27			upvalue[2_upvalue[3_var14]] = upvalue[3_var14]
-NEWCLOSURE		28			upvalue[3_upvalue[8_var17]] = upvalue[8_var17]
-NEWCLOSURE		29			var3 = function(arg0, arg1) -- line: 216
-GETTABLEKS		0				var2 = arg0["UserInputType"] -- [REDUNDANT]
-GETIMPORT		2				var3 = Enum["UserInputType"]["MouseButton1"] -- [REDUNDANT]
-JUMPIFEQ		4				if var2 ~= var3 then
-GETTABLEKS		0					var2 = arg0["KeyCode"] -- [REDUNDANT]
-GETIMPORT		2					var3 = Enum["KeyCode"]["ButtonR2"]
-JUMPIFNOTEQ		4					if var2 == var3 then
-JUMPIFNOT		0						if arg1 then
-RETURN			0							return 
-RETURN			0						end
-GETUPVAL		1						var2 = upvalue[upvalue[1_upvalue[7_var11]]]
-JUMPIF			2						if not var2 then
-LOADB			0							var2 = true -- [REDUNDANT]
-SETUPVAL		1							upvalue[upvalue[1_upvalue[7_var11]]] = var2
-GETUPVAL		2							var4 = upvalue[upvalue[2_upvalue[3_var14]]]
-GETTABLEKS		3							var3 = var4["Hit"]
-GETTABLEKS		5							var2 = var3["Position"]
-JUMPIF			7							if not var2 then
-LOADNIL			0								var3 = nil -- [REDUNDANT]
-GETTABLEKS		1								var2 = var3["Position"]
-GETTABLEKS		2							end
-GETUPVAL		8							var3 = upvalue[upvalue[3_upvalue[8_var17]]] -- [REDUNDANT]
-LOADN			9							var5 = 1 -- [REDUNDANT]
-MOVE			10							var6 = var2 -- [REDUNDANT]
-NAMECALL		11							var3 = var3:FireServer(var5, var6)
-GETIMPORT		13							var3 = task["wait"] -- [REDUNDANT]
-LOADK			15							var4 = 0.01 -- [REDUNDANT]
-CALL			16							var3 = var3(var4) -- [REDUNDANT]
-LOADB			17							var3 = false -- [REDUNDANT]
-SETUPVAL		18							upvalue[upvalue[1_upvalue[7_var11]]] = var3
-SETUPVAL		18						end
-SETUPVAL		18					end
-JUMPIFNOTEQ		5				end
-RETURN			6				return 
-RETURN			6			end
-NAMECALL		30			var1 = var1:Connect(var3)
-SETTABLEKS		32			var0["InputBegan"] = var1
-GETUPVAL		34			var0 = upvalue[upvalue[9_var13]] -- [REDUNDANT]
-JUMPIFNOT		35			if var0 then
-GETUPVAL		0				var0 = upvalue[upvalue[5_var16]]
-GETUPVAL		1				var2 = upvalue[upvalue[6_var0]] -- [REDUNDANT]
-GETTABLEKS		2				var1 = var2["TouchStarted"] -- [REDUNDANT]
-NEWCLOSURE		4				upvalue[1_upvalue[10_var12]] = upvalue[10_var12]
-NEWCLOSURE		5				var3 = function(arg0) -- line: 227
-GETTABLEKS		0					var1 = arg0["UserInputType"] -- [REDUNDANT]
-GETIMPORT		2					var2 = Enum["UserInputType"]["Touch"] -- [REDUNDANT]
-JUMPIFNOTEQ		4					if var1 == var2 then
-GETIMPORT		0						var1 = time -- [REDUNDANT]
-CALL			2						var1 = var1() -- [REDUNDANT]
-SETUPVAL		3						upvalue[upvalue[1_upvalue[10_var12]]] = var1
-SETUPVAL		3					end
-RETURN			6					return 
-RETURN			6				end
-NAMECALL		6				var1 = var1:Connect(var3)
-SETTABLEKS		8				var0["TouchStarted"] = var1
-GETUPVAL		10				var0 = upvalue[upvalue[5_var16]]
-GETUPVAL		11				var2 = upvalue[upvalue[6_var0]] -- [REDUNDANT]
-GETTABLEKS		12				var1 = var2["TouchEnded"] -- [REDUNDANT]
-NEWCLOSURE		14				upvalue[1_upvalue[10_var12]] = upvalue[10_var12]
-NEWCLOSURE		15				upvalue[2_upvalue[4_var6]] = upvalue[4_var6]
-NEWCLOSURE		16				upvalue[3_upvalue[7_var11]] = upvalue[7_var11]
-NEWCLOSURE		17				upvalue[4_upvalue[3_var14]] = upvalue[3_var14]
-NEWCLOSURE		18				upvalue[5_upvalue[8_var17]] = upvalue[8_var17]
-NEWCLOSURE		19				var3 = function(arg0, arg1) -- line: 233
-GETTABLEKS		0					var2 = arg0["UserInputType"] -- [REDUNDANT]
-GETIMPORT		2					var3 = Enum["UserInputType"]["Touch"]
-JUMPIFNOTEQ		4					if var2 == var3 then
-JUMPIFNOT		0						if arg1 then
-RETURN			0							return 
-RETURN			0						end
-GETIMPORT		1						var3 = time -- [REDUNDANT]
-CALL			3						var3 = var3()
-GETUPVAL		4						var4 = upvalue[upvalue[1_upvalue[10_var12]]] -- [REDUNDANT]
-SUB				5						var2 = var3 - var4
-LOADK			6						var3 = 0.1 -- [REDUNDANT]
-JUMPIFNOTLT		7						if var3 < var2 then
-RETURN			0							return 
-RETURN			0						end
-GETIMPORT		9						var3 = workspace -- [REDUNDANT]
-GETTABLEKS		11						var2 = var3["CurrentCamera"] -- [REDUNDANT]
-GETTABLEKS		13						var5 = arg0["Position"] -- [REDUNDANT]
-GETTABLEKS		15						var4 = var5["X"] -- [REDUNDANT]
-GETTABLEKS		17						var6 = arg0["Position"] -- [REDUNDANT]
-GETTABLEKS		19						var5 = var6["Y"] -- [REDUNDANT]
-NAMECALL		21						var2 = var2:ScreenPointToRay(var4, var5)
-GETIMPORT		23						var3 = Ray["new"] -- [REDUNDANT]
-GETTABLEKS		25						var4 = var2["Origin"] -- [REDUNDANT]
-GETTABLEKS		27						var6 = var2["Direction"] -- [REDUNDANT]
-MULK			29						var5 = var6 * 900 -- [REDUNDANT]
-CALL			30						var3 = var3(var4, var5) -- [REDUNDANT]
-GETIMPORT		31						var4 = workspace -- [REDUNDANT]
-MOVE			33						var6 = var3 -- [REDUNDANT]
-GETUPVAL		34						var8 = upvalue[upvalue[2_upvalue[4_var6]]] -- [REDUNDANT]
-GETTABLEKS		35						var7 = var8["Character"]
-NAMECALL		37						var4 = var4:FindPartOnRay(var6, var7)
-JUMPIFNOT		39						if var4 then
-GETTABLEKS		0							var5 = var4["Parent"] -- [REDUNDANT]
-JUMPIFNOT		2							if var5 then
-GETTABLEKS		0								var6 = var4["Parent"] -- [REDUNDANT]
-GETTABLEKS		2								var5 = var6["Parent"] -- [REDUNDANT]
-JUMPIFNOT		4								if var5 then
-GETTABLEKS		0									var5 = var4["Parent"] -- [REDUNDANT]
-LOADK			2									var7 = "Humanoid"
-NAMECALL		3									var5 = var5:FindFirstChild(var7)
-JUMPIF			5									if not var5 then
-GETTABLEKS		0										var6 = var4["Parent"] -- [REDUNDANT]
-GETTABLEKS		2										var5 = var6["Parent"] -- [REDUNDANT]
-LOADK			4										var7 = "Humanoid" -- [REDUNDANT]
-NAMECALL		5										var5 = var5:FindFirstChild(var7)
-NAMECALL		6									end
-JUMPIFNOT		6									if var5 then
-GETTABLEKS		0										var6 = var5["Parent"] -- [REDUNDANT]
-GETUPVAL		2										var8 = upvalue[upvalue[2_upvalue[4_var6]]] -- [REDUNDANT]
-GETTABLEKS		3										var7 = var8["Character"]
-JUMPIFEQ		5										if var6 ~= var7 then
-GETTABLEKS		0											var7 = var5["Parent"] -- [REDUNDANT]
-GETTABLEKS		2											var6 = var7["UpperTorso"]
-GETUPVAL		4											var7 = upvalue[upvalue[3_upvalue[7_var11]]]
-JUMPIF			5											if not var7 then
-LOADB			0												var7 = true
-SETUPVAL		1												upvalue[upvalue[3_upvalue[7_var11]]] = var7
-JUMPXEQKNIL		2												if var6 == nil then
-GETUPVAL		0													var9 = upvalue[upvalue[4_upvalue[3_var14]]] -- [REDUNDANT]
-GETTABLEKS		1													var8 = var9["Hit"] -- [REDUNDANT]
-GETTABLEKS		3													var7 = var8["Position"] -- [REDUNDANT]
-JUMPIF			5													if not var7 then
-GETTABLEKS		0														var7 = var6["Position"]
-GETTABLEKS		1													end
-GETTABLEKS		1												end
-GETUPVAL		4												var8 = upvalue[upvalue[5_upvalue[8_var17]]] -- [REDUNDANT]
-LOADN			5												var10 = 1 -- [REDUNDANT]
-MOVE			6												var11 = var7 -- [REDUNDANT]
-NAMECALL		7												var8 = var8:FireServer(var10, var11)
-GETIMPORT		9												var8 = task["wait"] -- [REDUNDANT]
-LOADK			11												var9 = 0.01
-CALL			12												var8 = var8(var9) -- [REDUNDANT]
-LOADB			13												var8 = false -- [REDUNDANT]
-SETUPVAL		14												upvalue[upvalue[3_upvalue[7_var11]]] = var8
-RETURN			15												return 
-GETUPVAL		16												var6 = upvalue[upvalue[3_upvalue[7_var11]]]
-JUMPIF			17												if not var6 then
-LOADB			0													var6 = true -- [REDUNDANT]
-SETUPVAL		1													upvalue[upvalue[3_upvalue[7_var11]]] = var6
-GETUPVAL		2													var8 = upvalue[upvalue[4_upvalue[3_var14]]]
-GETTABLEKS		3													var7 = var8["Hit"]
-GETTABLEKS		5													var6 = var7["Position"]
-JUMPIF			7													if not var6 then
-LOADNIL			0														var7 = nil -- [REDUNDANT]
-GETTABLEKS		1														var6 = var7["Position"]
-GETTABLEKS		2													end
-GETUPVAL		8													var7 = upvalue[upvalue[5_upvalue[8_var17]]] -- [REDUNDANT]
-LOADN			9													var9 = 1 -- [REDUNDANT]
-MOVE			10													var10 = var6 -- [REDUNDANT]
-NAMECALL		11													var7 = var7:FireServer(var9, var10)
-GETIMPORT		13													var7 = task["wait"] -- [REDUNDANT]
-LOADK			15													var8 = 0.01 -- [REDUNDANT]
-CALL			16													var7 = var7(var8) -- [REDUNDANT]
-LOADB			17													var7 = false -- [REDUNDANT]
-SETUPVAL		18													upvalue[upvalue[3_upvalue[7_var11]]] = var7
-SETUPVAL		18												end
-SETUPVAL		18											end
-SETUPVAL		18										end
-JUMPIFEQ		6									end
-JUMPIFEQ		6								end
-JUMPIFEQ		6							end
-JUMPIFEQ		6						end
-JUMPIFEQ		6					end
-RETURN			6					return 
-RETURN			6				end
-NAMECALL		20				var1 = var1:Connect(var3)
-SETTABLEKS		22				var0["TouchEnded"] = var1
-SETTABLEKS		23			end
-RETURN			36			return 
-RETURN			36		end
-NAMECALL		168		var29 = var29:Connect(var31)
-GETIMPORT		170		var31 = script -- [REDUNDANT]
-GETTABLEKS		172		var30 = var31["Parent"] -- [REDUNDANT]
-GETTABLEKS		174		var29 = var30["Unequipped"] -- [REDUNDANT]
-NEWCLOSURE		176		upvalue[1_var10] = var10
-NEWCLOSURE		177		upvalue[2_var27] = var27
-NEWCLOSURE		178		upvalue[3_var14] = var14
-NEWCLOSURE		179		upvalue[4_var16] = var16
-NEWCLOSURE		180		upvalue[5_var18] = var18
-NEWCLOSURE		181		var31 = function() -- line: 263
-GETUPVAL		0			var0 = upvalue[upvalue[1_var10]] -- [REDUNDANT]
-JUMPIFNOT		1			if var0 then
-GETUPVAL		0				var0 = upvalue[upvalue[1_var10]] -- [REDUNDANT]
-NAMECALL		1				var0 = var0:Stop()
-NAMECALL		2			end
-GETUPVAL		2			var0 = upvalue[upvalue[2_var27]] -- [REDUNDANT]
-LOADK			3			var2 = "Equip"
-NAMECALL		4			var0 = var0:PlaySound(var2)
-GETUPVAL		6			var0 = upvalue[upvalue[3_var14]]
-LOADK			7			var1 = ""
-SETTABLEKS		8			var0["Icon"] = var1
-GETUPVAL		10			var0 = upvalue[upvalue[4_var16]]
-LOADNIL			11			var1 = nil
-SETTABLEKS		12			var0["InputBegan"] = var1
-GETUPVAL		14			var0 = upvalue[upvalue[4_var16]]
-LOADNIL			15			var1 = nil
-SETTABLEKS		16			var0["TouchStarted"] = var1
-GETUPVAL		18			var0 = upvalue[upvalue[4_var16]]
-LOADNIL			19			var1 = nil -- [REDUNDANT]
-SETTABLEKS		20			var0["TouchEnded"] = var1
-GETUPVAL		22			var0 = upvalue[upvalue[5_var18]] -- [REDUNDANT]
-LOADNIL			23			var2 = nil -- [REDUNDANT]
-NAMECALL		24			var0 = var0:FireServer(var2)
-RETURN			26			return 
-RETURN			26		end
-NAMECALL		182		var29 = var29:Connect(var31)
-RETURN			184		return 
-
--- // Function Dumper made by King.Kevin
--- // Script Path: Players.CMKiNoVN.Backpack.Gun.GunClient
-
---[[
-Function Dump: Unknown Name
-
-Function Upvalues: Unknown Name
-    2 [table]:
-    2 [table] table: 0x91dcf2581a57b251
-        1 [function] = PlaySound
-    3 [Instance] = Instance
-    4 [Instance] = CMKiNoVN
-    5 [table]:
-    5 [table] table: 0x2901ded09b788961
-        1 [table]:
-        Tasks [table] table: 0xc09d95e9ebde5eb1
-        2 [table]:
-        Instances [table] table: 0xa83d4c80233c0cc1
-    6 [Instance] = UserInputService
-    7 [boolean] = false
-    8 [Instance] = ShootStart
-    9 [boolean] = true
-    10 [number] = 4.408333565108478
-
-Function Constants: Unknown Name
-    1 [string] = script
-    3 [string] = Parent
-    4 [string] = Name
-    5 [string] = Gingerscope
-    6 [string] = Blue Gingerscope
-    7 [string] = Green Gingerscope
-    8 [string] = Gummy Gingerscope
-    9 [string] = Pink Gingerscope
-    10 [string] = Pinkout Gingerscope
-    11 [string] = Purple Gingerscope
-    12 [string] = Red Gingerscope
-    13 [string] = Sour Gingerscope
-    14 [string] = Silver Gingerscope
-    15 [string] = Chroma Gingerscope
-    16 [string] = Play
-    17 [string] = Equip
-    18 [string] = PlaySound
-    19 [string] = rbxassetid://
-    20 [string] = CursorID
-    21 [string] = Value
-    22 [string] = Icon
-    23 [string] = InputBegan
-    24 [string] = Connect
-    25 [string] = TouchStarted
-    26 [string] = TouchEnded
-
-====================================================================================================
-
-Function Dump: Unknown Name
-
-Function Upvalues: Unknown Name
-    2 [table] (Recursive table detected)
-    3 [Instance] = Instance
-    4 [table] (Recursive table detected)
-    5 [Instance] = Lock
-
-Function Constants: Unknown Name
-    1 [string] = Stop
-    2 [string] = Equip
-    3 [string] = PlaySound
-    4 [string] = 
-    5 [string] = Icon
-    6 [string] = InputBegan
-    7 [string] = TouchStarted
-    8 [string] = TouchEnded
-    9 [string] = FireServer
-
-====================================================================================================
-
-Function Dump: Unknown Name
-
-Function Upvalues: Unknown Name
-    1 [Instance] = CMKiNoVN
-    2 [Instance] = Humanoid
-
-Function Constants: Unknown Name
-    1 [string] = script
-    3 [string] = Parent
-    4 [string] = Character
-    5 [string] = UnequipTools
-    6 [string] = EquipTool
-
-====================================================================================================
-
-Function Dump: PlaySound
-
-Function Upvalues: PlaySound
-    1 [table]:
-    1 [table] table: 0xae137288888ed5f1
-        1 [Instance] = Sound_Equip
-        2 [Instance] = Sound_Shot
-        3 [Instance] = Sound_Kill
-
-Function Constants: PlaySound
-    1 [string] = Play
-    2 [string] = print
-    4 [string] = Could not find sound
-
-====================================================================================================
-]]
-
--- // Function Dumper made by King.Kevin
--- // Script Path: Players.CMKiNoVN.Backpack.Gun.GunClient
-
---[[
-Function Dump: Unknown Name
-
-Function Upvalues: Unknown Name
-    2 [table]:
-    2 [table] table: 0x91dcf2581a57b251
-        1 [function] = PlaySound
-    3 [Instance] = Instance
-    4 [Instance] = CMKiNoVN
-    5 [table]:
-    5 [table] table: 0x2901ded09b788961
-        1 [table]:
-        Tasks [table] table: 0xc09d95e9ebde5eb1
-        2 [table]:
-        Instances [table] table: 0xa83d4c80233c0cc1
-    6 [Instance] = UserInputService
-    7 [boolean] = false
-    8 [Instance] = ShootStart
-    9 [boolean] = true
-    10 [number] = 4.408333565108478
-
-Function Constants: Unknown Name
-    1 [string] = script
-    3 [string] = Parent
-    4 [string] = Name
-    5 [string] = Gingerscope
-    6 [string] = Blue Gingerscope
-    7 [string] = Green Gingerscope
-    8 [string] = Gummy Gingerscope
-    9 [string] = Pink Gingerscope
-    10 [string] = Pinkout Gingerscope
-    11 [string] = Purple Gingerscope
-    12 [string] = Red Gingerscope
-    13 [string] = Sour Gingerscope
-    14 [string] = Silver Gingerscope
-    15 [string] = Chroma Gingerscope
-    16 [string] = Play
-    17 [string] = Equip
-    18 [string] = PlaySound
-    19 [string] = rbxassetid://
-    20 [string] = CursorID
-    21 [string] = Value
-    22 [string] = Icon
-    23 [string] = InputBegan
-    24 [string] = Connect
-    25 [string] = TouchStarted
-    26 [string] = TouchEnded
-
-====================================================================================================
-
-Function Dump: Unknown Name
-
-Function Upvalues: Unknown Name
-    2 [table] (Recursive table detected)
-    3 [Instance] = Instance
-    4 [table] (Recursive table detected)
-    5 [Instance] = Lock
-
-Function Constants: Unknown Name
-    1 [string] = Stop
-    2 [string] = Equip
-    3 [string] = PlaySound
-    4 [string] = 
-    5 [string] = Icon
-    6 [string] = InputBegan
-    7 [string] = TouchStarted
-    8 [string] = TouchEnded
-    9 [string] = FireServer
-
-====================================================================================================
-
-Function Dump: Unknown Name
-
-Function Upvalues: Unknown Name
-    1 [Instance] = CMKiNoVN
-    2 [Instance] = Humanoid
-
-Function Constants: Unknown Name
-    1 [string] = script
-    3 [string] = Parent
-    4 [string] = Character
-    5 [string] = UnequipTools
-    6 [string] = EquipTool
-
-====================================================================================================
-
-Function Dump: PlaySound
-
-Function Upvalues: PlaySound
-    1 [table]:
-    1 [table] table: 0xae137288888ed5f1
-        1 [Instance] = Sound_Equip
-        2 [Instance] = Sound_Shot
-        3 [Instance] = Sound_Kill
-
-Function Constants: PlaySound
-    1 [string] = Play
-    2 [string] = print
-    4 [string] = Could not find sound
-
-====================================================================================================
-]]
-
--- // Function Dumper made by King.Kevin
--- // Script Path: Players.CMKiNoVN.Backpack.Gun.GunClient
-
---[[
-Function Dump: Unknown Name
-
-Function Upvalues: Unknown Name
-    2 [table]:
-    2 [table] table: 0x91dcf2581a57b251
-        1 [function] = PlaySound
-    3 [Instance] = Instance
-    4 [Instance] = CMKiNoVN
-    5 [table]:
-    5 [table] table: 0x2901ded09b788961
-        1 [table]:
-        Tasks [table] table: 0xc09d95e9ebde5eb1
-        2 [table]:
-        Instances [table] table: 0xa83d4c80233c0cc1
-    6 [Instance] = UserInputService
-    7 [boolean] = false
-    8 [Instance] = ShootStart
-    9 [boolean] = true
-    10 [number] = 4.408333565108478
-
-Function Constants: Unknown Name
-    1 [string] = script
-    3 [string] = Parent
-    4 [string] = Name
-    5 [string] = Gingerscope
-    6 [string] = Blue Gingerscope
-    7 [string] = Green Gingerscope
-    8 [string] = Gummy Gingerscope
-    9 [string] = Pink Gingerscope
-    10 [string] = Pinkout Gingerscope
-    11 [string] = Purple Gingerscope
-    12 [string] = Red Gingerscope
-    13 [string] = Sour Gingerscope
-    14 [string] = Silver Gingerscope
-    15 [string] = Chroma Gingerscope
-    16 [string] = Play
-    17 [string] = Equip
-    18 [string] = PlaySound
-    19 [string] = rbxassetid://
-    20 [string] = CursorID
-    21 [string] = Value
-    22 [string] = Icon
-    23 [string] = InputBegan
-    24 [string] = Connect
-    25 [string] = TouchStarted
-    26 [string] = TouchEnded
-
-====================================================================================================
-
-Function Dump: Unknown Name
-
-Function Upvalues: Unknown Name
-    2 [table] (Recursive table detected)
-    3 [Instance] = Instance
-    4 [table] (Recursive table detected)
-    5 [Instance] = Lock
-
-Function Constants: Unknown Name
-    1 [string] = Stop
-    2 [string] = Equip
-    3 [string] = PlaySound
-    4 [string] = 
-    5 [string] = Icon
-    6 [string] = InputBegan
-    7 [string] = TouchStarted
-    8 [string] = TouchEnded
-    9 [string] = FireServer
-
-====================================================================================================
-
-Function Dump: Unknown Name
-
-Function Upvalues: Unknown Name
-    1 [Instance] = CMKiNoVN
-    2 [Instance] = Humanoid
-
-Function Constants: Unknown Name
-    1 [string] = script
-    3 [string] = Parent
-    4 [string] = Character
-    5 [string] = UnequipTools
-    6 [string] = EquipTool
-
-====================================================================================================
-
-Function Dump: PlaySound
-
-Function Upvalues: PlaySound
-    1 [table]:
-    1 [table] table: 0xae137288888ed5f1
-        1 [Instance] = Sound_Equip
-        2 [Instance] = Sound_Shot
-        3 [Instance] = Sound_Kill
-
-Function Constants: PlaySound
-    1 [string] = Play
-    2 [string] = print
-    4 [string] = Could not find sound
-
-====================================================================================================
-]]
+NEWCLOSURE		42		upvalue[1_var4] = var4
+NEWCLOSURE		43		upvalue[2_var5] = var5
+NEWCLOSURE		44		upvalue[3_var6] = var6
+NEWCLOSURE		45		function var0.resetWeapons()
+NEWTABLE		0			var0 = {}
+SETUPVAL		2			upvalue[upvalue[1_var4]] = var0
+LOADN			3			var0 = 0
+SETUPVAL		4			upvalue[upvalue[2_var5]] = var0
+LOADN			5			var0 = 0 -- [REDUNDANT]
+SETUPVAL		6			upvalue[upvalue[3_var6]] = var0
+RETURN			7			return 
+RETURN			7		end
+NEWCLOSURE		47		upvalue[1_var8] = var8
+NEWCLOSURE		48		upvalue[2_var1] = var1
+NEWCLOSURE		49		upvalue[3_var6] = var6
+NEWCLOSURE		50		upvalue[4_var4] = var4
+NEWCLOSURE		51		upvalue[5_var5] = var5
+NEWCLOSURE		52		upvalue[6_var2] = var2
+NEWCLOSURE		53		function var0.ChangeWeapon(arg0)
+LOADB			0			var1 = true -- [REDUNDANT]
+SETUPVAL		1			upvalue[upvalue[1_var8]] = var1
+GETUPVAL		2			var3 = upvalue[upvalue[2_var1]] -- [REDUNDANT]
+GETTABLEKS		3			var2 = var3["get"] -- [REDUNDANT]
+CALL			5			var2 = var2() -- [REDUNDANT]
+GETTABLEKS		6			var3 = arg0["Name"] -- [REDUNDANT]
+GETTABLE		8			var1 = var2[var3] -- [REDUNDANT]
+GETUPVAL		9			var3 = upvalue[upvalue[4_var4]] -- [REDUNDANT]
+GETTABLEKS		10			var4 = arg0["Name"] -- [REDUNDANT]
+GETTABLE		12			var2 = var3[var4] -- [REDUNDANT]
+SETUPVAL		13			upvalue[upvalue[3_var6]] = var2
+GETTABLEKS		14			var2 = var1["MagSize"] -- [REDUNDANT]
+SETUPVAL		16			upvalue[upvalue[5_var5]] = var2
+GETUPVAL		17			var2 = upvalue[upvalue[3_var6]] -- [REDUNDANT]
+JUMPIF			18			if not var2 then
+GETUPVAL		0				var2 = upvalue[upvalue[4_var4]]
+GETTABLEKS		1				var3 = arg0["Name"] -- [REDUNDANT]
+GETUPVAL		3				var4 = upvalue[upvalue[5_var5]] -- [REDUNDANT]
+SETTABLE		4				var2[var3] = var4
+GETUPVAL		5				var3 = upvalue[upvalue[4_var4]] -- [REDUNDANT]
+GETTABLEKS		6				var4 = arg0["Name"] -- [REDUNDANT]
+GETTABLE		8				var2 = var3[var4] -- [REDUNDANT]
+SETUPVAL		9				upvalue[upvalue[3_var6]] = var2
+SETUPVAL		9			end
+GETUPVAL		19			var2 = upvalue[upvalue[3_var6]] -- [REDUNDANT]
+JUMPXEQKN		20			if var2 == inf then
+GETUPVAL		0				var3 = upvalue[upvalue[6_var2]]
+GETTABLEKS		1				var2 = var3["setBulletText"] -- [REDUNDANT]
+LOADK			3				var3 = "" -- [REDUNDANT]
+CALL			4				var2 = var2(var3)
+RETURN			5				return 
+RETURN			5			end
+GETUPVAL		22			var3 = upvalue[upvalue[6_var2]] -- [REDUNDANT]
+GETTABLEKS		23			var2 = var3["setBulletText"] -- [REDUNDANT]
+GETUPVAL		25			var8 = upvalue[upvalue[3_var6]] -- [REDUNDANT]
+GETIMPORT		26			var7 = tostring -- [REDUNDANT]
+CALL			28			var7 = var7(var8) -- [REDUNDANT]
+MOVE			29			var4 = var7 -- [REDUNDANT]
+LOADK			30			var5 = " / "
+GETUPVAL		31			var7 = upvalue[upvalue[5_var5]] -- [REDUNDANT]
+GETIMPORT		32			var6 = tostring -- [REDUNDANT]
+CALL			34			var6 = var6(var7) -- [REDUNDANT]
+CONCAT			35			var3 = var4 .. var6 -- [REDUNDANT]
+CALL			36			var2 = var2(var3)
+RETURN			37			return 
+RETURN			37		end
+NEWCLOSURE		55		upvalue[1_var6] = var6
+NEWCLOSURE		56		upvalue[2_var7] = var7
+NEWCLOSURE		57		function var0.CanFireBullet()
+GETIMPORT		0			var3 = game
+GETTABLEKS		2			var2 = var3["Players"]
+GETTABLEKS		4			var1 = var2["LocalPlayer"] -- [REDUNDANT]
+GETTABLEKS		6			var0 = var1["Character"]
+LOADK			8			var3 = "Humanoid" -- [REDUNDANT]
+NAMECALL		9			var1 = var0:FindFirstChild(var3)
+JUMPIF			11			if not var1 then
+LOADB			0				var2 = false -- [REDUNDANT]
+RETURN			1				return var2
+RETURN			1			end
+LOADB			12			var2 = false
+GETUPVAL		13			var3 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
+LOADN			14			var4 = 0
+JUMPIFNOTLT		15			if var4 < var3 then
+GETUPVAL		0				var3 = upvalue[upvalue[2_var7]] -- [REDUNDANT]
+NOT				1				var2 = not var3
+JUMPIFNOT		2				if var2 then
+LOADB			0					var2 = false -- [REDUNDANT]
+GETTABLEKS		1					var3 = var1["Health"] -- [REDUNDANT]
+LOADN			3					var4 = 0 -- [REDUNDANT]
+JUMPIFNOTLT		4					if var4 < var3 then
+LOADK			0						var5 = "InMouth" -- [REDUNDANT]
+NAMECALL		1						var3 = var0:GetAttribute(var5)
+NOT				3						var2 = not var3
+NOT				3					end
+JUMPIFNOTLT		5				end
+JUMPIFNOTLT		5			end
+RETURN			17			return var2
+RETURN			17		end
+NEWCLOSURE		59		upvalue[1_var6] = var6
+NEWCLOSURE		60		upvalue[2_var4] = var4
+NEWCLOSURE		61		upvalue[3_var2] = var2
+NEWCLOSURE		62		upvalue[4_var5] = var5
+NEWCLOSURE		63		function var0.BulletFired(arg0)
+GETUPVAL		0			var1 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
+LOADN			1			var2 = 1
+JUMPIFNOTLT		2			if var1 < var2 then
+GETIMPORT		0				var1 = print -- [REDUNDANT]
+LOADK			2				var2 = "Bullet Count ERROR" -- [REDUNDANT]
+CALL			3				var1 = var1(var2) -- [REDUNDANT]
+LOADB			4				var1 = false -- [REDUNDANT]
+RETURN			5				return var1
+RETURN			5			end
+GETUPVAL		4			var1 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
+SUBK			5			var1 = var1 - 1 -- [REDUNDANT]
+SETUPVAL		6			upvalue[upvalue[1_var6]] = var1
+GETUPVAL		7			var1 = upvalue[upvalue[2_var4]]
+GETTABLEKS		8			var2 = arg0["Name"] -- [REDUNDANT]
+GETUPVAL		10			var3 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
+SETTABLE		11			var1[var2] = var3
+GETUPVAL		12			var1 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
+JUMPXEQKN		13			if var1 == inf then
+GETUPVAL		0				var2 = upvalue[upvalue[3_var2]]
+GETTABLEKS		1				var1 = var2["setBulletText"] -- [REDUNDANT]
+LOADK			3				var2 = "" -- [REDUNDANT]
+CALL			4				var1 = var1(var2)
+RETURN			5				return 
+RETURN			5			end
+GETUPVAL		15			var2 = upvalue[upvalue[3_var2]] -- [REDUNDANT]
+GETTABLEKS		16			var1 = var2["setBulletText"] -- [REDUNDANT]
+GETUPVAL		18			var7 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
+GETIMPORT		19			var6 = tostring -- [REDUNDANT]
+CALL			21			var6 = var6(var7) -- [REDUNDANT]
+MOVE			22			var3 = var6 -- [REDUNDANT]
+LOADK			23			var4 = " / "
+GETUPVAL		24			var6 = upvalue[upvalue[4_var5]] -- [REDUNDANT]
+GETIMPORT		25			var5 = tostring -- [REDUNDANT]
+CALL			27			var5 = var5(var6) -- [REDUNDANT]
+CONCAT			28			var2 = var3 .. var5 -- [REDUNDANT]
+CALL			29			var1 = var1(var2)
+RETURN			30			return 
+RETURN			30		end
+NEWCLOSURE		65		upvalue[1_var7] = var7
+NEWCLOSURE		66		function var0.isReloading()
+GETUPVAL		0			var0 = upvalue[upvalue[1_var7]] -- [REDUNDANT]
+RETURN			1			return var0
+RETURN			1		end
+NEWCLOSURE		68		upvalue[1_var7] = var7
+NEWCLOSURE		69		upvalue[2_var8] = var8
+NEWCLOSURE		70		upvalue[3_var1] = var1
+NEWCLOSURE		71		upvalue[4_var3] = var3
+NEWCLOSURE		72		upvalue[5_var2] = var2
+NEWCLOSURE		73		upvalue[6_var9] = var9
+NEWCLOSURE		74		upvalue[7_var6] = var6
+NEWCLOSURE		75		upvalue[8_var5] = var5
+NEWCLOSURE		76		upvalue[9_var4] = var4
+NEWCLOSURE		77		function var0.Reload(arg0)
+GETUPVAL		0			var1 = upvalue[upvalue[1_var7]]
+JUMPIFNOT		1			if var1 then
+RETURN			0				return 
+RETURN			0			end
+LOADB			2			var1 = false
+SETUPVAL		3			upvalue[upvalue[2_var8]] = var1
+LOADB			4			var1 = true -- [REDUNDANT]
+SETUPVAL		5			upvalue[upvalue[1_var7]] = var1
+GETIMPORT		6			var3 = game -- [REDUNDANT]
+GETTABLEKS		8			var2 = var3["SoundService"] -- [REDUNDANT]
+GETTABLEKS		10			var1 = var2["Reload"] -- [REDUNDANT]
+NAMECALL		12			var1 = var1:Play()
+GETUPVAL		14			var4 = upvalue[upvalue[3_var1]] -- [REDUNDANT]
+GETTABLEKS		15			var3 = var4["get"] -- [REDUNDANT]
+CALL			17			var3 = var3() -- [REDUNDANT]
+GETTABLEKS		18			var4 = arg0["Name"] -- [REDUNDANT]
+GETTABLE		20			var2 = var3[var4] -- [REDUNDANT]
+GETTABLEKS		21			var1 = var2["ReloadTime"]
+GETUPVAL		23			var3 = upvalue[upvalue[4_var3]] -- [REDUNDANT]
+GETTABLEKS		24			var2 = var3["playReload"] -- [REDUNDANT]
+MOVE			26			var3 = arg0 -- [REDUNDANT]
+MOVE			27			var4 = var1 -- [REDUNDANT]
+CALL			28			var2 = var2(var3, var4)
+GETUPVAL		29			var3 = upvalue[upvalue[5_var2]] -- [REDUNDANT]
+GETTABLEKS		30			var2 = var3["hideReloadButton"] -- [REDUNDANT]
+CALL			32			var2 = var2() -- [REDUNDANT]
+LOADN			33			var2 = 0 -- [REDUNDANT]
+GETIMPORT		34			var4 = game -- [REDUNDANT]
+LOADK			36			var6 = "RunService" -- [REDUNDANT]
+NAMECALL		37			var4 = var4:GetService(var6)
+GETTABLEKS		39			var3 = var4["Heartbeat"] -- [REDUNDANT]
+NEWCLOSURE		41			upvalue[1_var2] = var2
+NEWCLOSURE		42			upvalue[2_upvalue[2_var8]] = upvalue[2_var8]
+NEWCLOSURE		43			upvalue[3_upvalue[1_var7]] = upvalue[1_var7]
+NEWCLOSURE		44			upvalue[4_upvalue[6_var9]] = upvalue[6_var9]
+NEWCLOSURE		45			upvalue[5_var1] = var1
+NEWCLOSURE		46			upvalue[6_upvalue[7_var6]] = upvalue[7_var6]
+NEWCLOSURE		47			upvalue[7_upvalue[8_var5]] = upvalue[8_var5]
+NEWCLOSURE		48			upvalue[8_upvalue[9_var4]] = upvalue[9_var4]
+NEWCLOSURE		49			upvalue[9_arg0] = arg0
+NEWCLOSURE		50			upvalue[10_upvalue[5_var2]] = upvalue[5_var2]
+NEWCLOSURE		51			var5 = function(arg0) -- line: 77
+GETUPVAL		0				var1 = upvalue[upvalue[1_var2]] -- [REDUNDANT]
+ADD				1				var1 = var1 + arg0 -- [REDUNDANT]
+SETUPVAL		2				upvalue[upvalue[1_var2]] = var1
+GETUPVAL		3				var1 = upvalue[upvalue[2_upvalue[2_var8]]]
+JUMPIFNOT		4				if var1 then
+LOADB			0					var1 = false
+SETUPVAL		1					upvalue[upvalue[2_upvalue[2_var8]]] = var1
+LOADB			2					var1 = false -- [REDUNDANT]
+SETUPVAL		3					upvalue[upvalue[3_upvalue[1_var7]]] = var1
+GETIMPORT		4					var3 = game -- [REDUNDANT]
+GETTABLEKS		6					var2 = var3["SoundService"] -- [REDUNDANT]
+GETTABLEKS		8					var1 = var2["Reload"] -- [REDUNDANT]
+NAMECALL		10					var1 = var1:Stop()
+GETUPVAL		12					var1 = upvalue[upvalue[4_upvalue[6_var9]]] -- [REDUNDANT]
+NAMECALL		13					var1 = var1:Disconnect()
+LOADNIL			15					var1 = nil -- [REDUNDANT]
+SETUPVAL		16					upvalue[upvalue[4_upvalue[6_var9]]] = var1
+RETURN			17					return 
+RETURN			17				end
+GETUPVAL		5				var1 = upvalue[upvalue[1_var2]]
+GETUPVAL		6				var2 = upvalue[upvalue[5_var1]] -- [REDUNDANT]
+JUMPIFNOTLE		7				if var2 <= var1 then
+GETUPVAL		0					var1 = upvalue[upvalue[7_upvalue[8_var5]]] -- [REDUNDANT]
+SETUPVAL		1					upvalue[upvalue[6_upvalue[7_var6]]] = var1
+GETUPVAL		2					var1 = upvalue[upvalue[8_upvalue[9_var4]]]
+GETUPVAL		3					var3 = upvalue[upvalue[9_arg0]] -- [REDUNDANT]
+GETTABLEKS		4					var2 = var3["Name"] -- [REDUNDANT]
+GETUPVAL		6					var3 = upvalue[upvalue[6_upvalue[7_var6]]] -- [REDUNDANT]
+SETTABLE		7					var1[var2] = var3
+LOADB			8					var1 = false -- [REDUNDANT]
+SETUPVAL		9					upvalue[upvalue[3_upvalue[1_var7]]] = var1
+GETUPVAL		10					var1 = upvalue[upvalue[6_upvalue[7_var6]]] -- [REDUNDANT]
+JUMPXEQKN		11					if var1 == inf then
+GETUPVAL		0						var2 = upvalue[upvalue[10_upvalue[5_var2]]]
+GETTABLEKS		1						var1 = var2["setBulletText"] -- [REDUNDANT]
+LOADK			3						var2 = "" -- [REDUNDANT]
+CALL			4						var1 = var1(var2)
+CALL			4					else
+GETUPVAL		0						var2 = upvalue[upvalue[10_upvalue[5_var2]]] -- [REDUNDANT]
+GETTABLEKS		1						var1 = var2["setBulletText"] -- [REDUNDANT]
+GETUPVAL		3						var7 = upvalue[upvalue[6_upvalue[7_var6]]] -- [REDUNDANT]
+GETIMPORT		4						var6 = tostring -- [REDUNDANT]
+CALL			6						var6 = var6(var7) -- [REDUNDANT]
+MOVE			7						var3 = var6 -- [REDUNDANT]
+LOADK			8						var4 = " / "
+GETUPVAL		9						var6 = upvalue[upvalue[7_upvalue[8_var5]]] -- [REDUNDANT]
+GETIMPORT		10						var5 = tostring -- [REDUNDANT]
+CALL			12						var5 = var5(var6) -- [REDUNDANT]
+CONCAT			13						var2 = var3 .. var5 -- [REDUNDANT]
+CALL			14						var1 = var1(var2)
+CALL			14					end
+GETUPVAL		13					var1 = upvalue[upvalue[4_upvalue[6_var9]]] -- [REDUNDANT]
+NAMECALL		14					var1 = var1:Disconnect()
+LOADNIL			16					var1 = nil -- [REDUNDANT]
+SETUPVAL		17					upvalue[upvalue[4_upvalue[6_var9]]] = var1
+RETURN			18					return 
+RETURN			18				end
+RETURN			9				return 
+RETURN			9			end
+NAMECALL		52			var3 = var3:Connect(var5)
+SETUPVAL		54			upvalue[upvalue[6_var9]] = var3
+RETURN			55			return 
+RETURN			55		end
+RETURN			79		return var0
