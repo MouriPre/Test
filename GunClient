@@ -1,314 +1,693 @@
-Name = BulletCountModule
-Class = ModuleScript
-Path = Players.CMKiNoVN.PlayerScripts.ProjectilesClient.WeaponScript.BulletCountModule
+Name = KnifeController
+Class = LocalScript
+Path = Players.CMKiNoVN.Backpack.Virtual.KnifeController
 
-NEWTABLE		0		var0 = {}
-GETIMPORT		2		var1 = require -- [REDUNDANT]
-GETIMPORT		4		var5 = game -- [REDUNDANT]
-GETTABLEKS		6		var4 = var5["ReplicatedStorage"] -- [REDUNDANT]
-GETTABLEKS		8		var3 = var4["Projectiles"] -- [REDUNDANT]
-GETTABLEKS		10		var2 = var3["ProjectileStatsModule"] -- [REDUNDANT]
-CALL			12		var1 = var1(var2)
-GETIMPORT		13		var2 = require -- [REDUNDANT]
-GETIMPORT		15		var5 = script -- [REDUNDANT]
-GETTABLEKS		17		var4 = var5["Parent"] -- [REDUNDANT]
-GETTABLEKS		19		var3 = var4["WeaponUIModule"] -- [REDUNDANT]
-CALL			21		var2 = var2(var3)
-GETIMPORT		22		var3 = require -- [REDUNDANT]
-GETIMPORT		24		var6 = script
-GETTABLEKS		26		var5 = var6["Parent"]
-GETTABLEKS		28		var4 = var5["WeaponAnimations"] -- [REDUNDANT]
-CALL			30		var3 = var3(var4)
-NEWTABLE		31		var4 = {}
-LOADN			33		var5 = 0
-LOADN			34		var6 = 0
-LOADB			35		var7 = false
-LOADB			36		var8 = false
-LOADNIL			37		var9 = nil -- [REDUNDANT]
-NEWCLOSURE		38		upvalue[1_var6] = var6
-NEWCLOSURE		39		upvalue[2_var2] = var2
-NEWCLOSURE		40		upvalue[3_var5] = var5
-NEWCLOSURE		41		local updateBulletText = function() -- line: 15
-GETUPVAL		0			var0 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
-JUMPXEQKN		1			if var0 == inf then
-GETUPVAL		0				var1 = upvalue[upvalue[2_var2]]
-GETTABLEKS		1				var0 = var1["setBulletText"] -- [REDUNDANT]
-LOADK			3				var1 = "" -- [REDUNDANT]
-CALL			4				var0 = var0(var1)
-RETURN			5				return 
-RETURN			5			end
-GETUPVAL		3			var1 = upvalue[upvalue[2_var2]] -- [REDUNDANT]
-GETTABLEKS		4			var0 = var1["setBulletText"] -- [REDUNDANT]
-GETUPVAL		6			var6 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
-GETIMPORT		7			var5 = tostring -- [REDUNDANT]
-CALL			9			var5 = var5(var6) -- [REDUNDANT]
-MOVE			10			var2 = var5 -- [REDUNDANT]
-LOADK			11			var3 = " / "
-GETUPVAL		12			var5 = upvalue[upvalue[3_var5]] -- [REDUNDANT]
-GETIMPORT		13			var4 = tostring -- [REDUNDANT]
-CALL			15			var4 = var4(var5) -- [REDUNDANT]
-CONCAT			16			var1 = var2 .. var4 -- [REDUNDANT]
-CALL			17			var0 = var0(var1)
-RETURN			18			return 
-RETURN			18		end
-NEWCLOSURE		42		upvalue[1_var4] = var4
-NEWCLOSURE		43		upvalue[2_var5] = var5
-NEWCLOSURE		44		upvalue[3_var6] = var6
-NEWCLOSURE		45		function var0.resetWeapons()
-NEWTABLE		0			var0 = {}
-SETUPVAL		2			upvalue[upvalue[1_var4]] = var0
-LOADN			3			var0 = 0
-SETUPVAL		4			upvalue[upvalue[2_var5]] = var0
-LOADN			5			var0 = 0 -- [REDUNDANT]
-SETUPVAL		6			upvalue[upvalue[3_var6]] = var0
-RETURN			7			return 
-RETURN			7		end
-NEWCLOSURE		47		upvalue[1_var8] = var8
-NEWCLOSURE		48		upvalue[2_var1] = var1
-NEWCLOSURE		49		upvalue[3_var6] = var6
-NEWCLOSURE		50		upvalue[4_var4] = var4
-NEWCLOSURE		51		upvalue[5_var5] = var5
-NEWCLOSURE		52		upvalue[6_var2] = var2
-NEWCLOSURE		53		function var0.ChangeWeapon(arg0)
-LOADB			0			var1 = true -- [REDUNDANT]
-SETUPVAL		1			upvalue[upvalue[1_var8]] = var1
-GETUPVAL		2			var3 = upvalue[upvalue[2_var1]] -- [REDUNDANT]
-GETTABLEKS		3			var2 = var3["get"] -- [REDUNDANT]
-CALL			5			var2 = var2() -- [REDUNDANT]
-GETTABLEKS		6			var3 = arg0["Name"] -- [REDUNDANT]
-GETTABLE		8			var1 = var2[var3] -- [REDUNDANT]
-GETUPVAL		9			var3 = upvalue[upvalue[4_var4]] -- [REDUNDANT]
-GETTABLEKS		10			var4 = arg0["Name"] -- [REDUNDANT]
-GETTABLE		12			var2 = var3[var4] -- [REDUNDANT]
-SETUPVAL		13			upvalue[upvalue[3_var6]] = var2
-GETTABLEKS		14			var2 = var1["MagSize"] -- [REDUNDANT]
-SETUPVAL		16			upvalue[upvalue[5_var5]] = var2
-GETUPVAL		17			var2 = upvalue[upvalue[3_var6]] -- [REDUNDANT]
-JUMPIF			18			if not var2 then
-GETUPVAL		0				var2 = upvalue[upvalue[4_var4]]
-GETTABLEKS		1				var3 = arg0["Name"] -- [REDUNDANT]
-GETUPVAL		3				var4 = upvalue[upvalue[5_var5]] -- [REDUNDANT]
-SETTABLE		4				var2[var3] = var4
-GETUPVAL		5				var3 = upvalue[upvalue[4_var4]] -- [REDUNDANT]
-GETTABLEKS		6				var4 = arg0["Name"] -- [REDUNDANT]
-GETTABLE		8				var2 = var3[var4] -- [REDUNDANT]
-SETUPVAL		9				upvalue[upvalue[3_var6]] = var2
-SETUPVAL		9			end
-GETUPVAL		19			var2 = upvalue[upvalue[3_var6]] -- [REDUNDANT]
-JUMPXEQKN		20			if var2 == inf then
-GETUPVAL		0				var3 = upvalue[upvalue[6_var2]]
-GETTABLEKS		1				var2 = var3["setBulletText"] -- [REDUNDANT]
-LOADK			3				var3 = "" -- [REDUNDANT]
-CALL			4				var2 = var2(var3)
-RETURN			5				return 
-RETURN			5			end
-GETUPVAL		22			var3 = upvalue[upvalue[6_var2]] -- [REDUNDANT]
-GETTABLEKS		23			var2 = var3["setBulletText"] -- [REDUNDANT]
-GETUPVAL		25			var8 = upvalue[upvalue[3_var6]] -- [REDUNDANT]
-GETIMPORT		26			var7 = tostring -- [REDUNDANT]
-CALL			28			var7 = var7(var8) -- [REDUNDANT]
-MOVE			29			var4 = var7 -- [REDUNDANT]
-LOADK			30			var5 = " / "
-GETUPVAL		31			var7 = upvalue[upvalue[5_var5]] -- [REDUNDANT]
-GETIMPORT		32			var6 = tostring -- [REDUNDANT]
-CALL			34			var6 = var6(var7) -- [REDUNDANT]
-CONCAT			35			var3 = var4 .. var6 -- [REDUNDANT]
-CALL			36			var2 = var2(var3)
+DUPCLOSURE		0		var0 = function(arg0) -- line: 1
+GETIMPORT		0			var1 = game -- [REDUNDANT]
+MOVE			2			var3 = arg0 -- [REDUNDANT]
+NAMECALL		3			var1 = var1:GetService(var3)
+RETURN			5			return var1
+RETURN			5		end
+GETIMPORT		1		var1 = game -- [REDUNDANT]
+LOADK			3		var3 = "Players" -- [REDUNDANT]
+NAMECALL		4		var1 = var1:GetService(var3)
+GETIMPORT		6		var2 = game -- [REDUNDANT]
+LOADK			8		var4 = "ReplicatedStorage" -- [REDUNDANT]
+NAMECALL		9		var2 = var2:GetService(var4)
+LOADK			11		var5 = "forhackers" -- [REDUNDANT]
+NAMECALL		12		var3 = var2:WaitForChild(var5)
+GETTABLEKS		14		var4 = var3["InvokeServer"]
+GETIMPORT		16		var5 = game -- [REDUNDANT]
+LOADK			18		var7 = "UserInputService" -- [REDUNDANT]
+NAMECALL		19		var5 = var5:GetService(var7)
+GETIMPORT		21		var7 = script -- [REDUNDANT]
+GETTABLEKS		23		var6 = var7["Parent"]
+LOADK			25		var9 = "Handle" -- [REDUNDANT]
+NAMECALL		26		var7 = var6:WaitForChild(var9)
+GETIMPORT		28		var10 = game -- [REDUNDANT]
+GETTABLEKS		30		var9 = var10["Players"] -- [REDUNDANT]
+GETTABLEKS		32		var8 = var9["LocalPlayer"]
+GETTABLEKS		34		var9 = var8["Character"]
+JUMPIF			36		if not var9 then
+GETTABLEKS		0			var9 = var8["CharacterAdded"] -- [REDUNDANT]
+NAMECALL		2			var9 = var9:wait()
+NAMECALL		3		end
+LOADK			37		var12 = "Humanoid"
+NAMECALL		38		var10 = var9:WaitForChild(var12)
+LOADB			40		var11 = false
+LOADB			41		var12 = false
+LOADB			42		var13 = false
+GETIMPORT		43		var14 = require -- [REDUNDANT]
+GETIMPORT		45		var17 = game
+GETTABLEKS		47		var16 = var17["ReplicatedStorage"] -- [REDUNDANT]
+GETTABLEKS		49		var15 = var16["MouseModule"] -- [REDUNDANT]
+CALL			51		var14 = var14(var15)
+LOADK			52		var17 = "Idle" -- [REDUNDANT]
+NAMECALL		53		var15 = var6:WaitForChild(var17)
+GETTABLEKS		55		var16 = var14["Icon"]
+DUPCLOSURE		57		upvalue[1_var5] = var5
+DUPCLOSURE		58		local mobile = function() -- line: 19
+GETUPVAL		0			var1 = upvalue[upvalue[1_var5]] -- [REDUNDANT]
+GETTABLEKS		1			var0 = var1["TouchEnabled"]
+JUMPIFNOT		3			if var0 then
+GETUPVAL		0				var2 = upvalue[upvalue[1_var5]] -- [REDUNDANT]
+GETTABLEKS		1				var1 = var2["MouseEnabled"] -- [REDUNDANT]
+NOT				3				var0 = not var1
+NOT				3			end
+RETURN			4			return var0
+RETURN			4		end
+GETIMPORT		59		var19 = require -- [REDUNDANT]
+LOADK			61		var22 = "KnifeData"
+NAMECALL		62		var20 = var2:WaitForChild(var22)
+CALL			64		var19 = var19(var20) -- [REDUNDANT]
+GETTABLEKS		65		var20 = var6["Name"]
+GETTABLE		67		var18 = var19[var20]
+LOADK			68		var21 = "PlayerGui"
+NAMECALL		69		var19 = var8:WaitForChild(var21)
+LOADK			71		var21 = "Controls"
+NAMECALL		72		var19 = var19:WaitForChild(var21)
+LOADK			74		var21 = "Throw"
+NAMECALL		75		var19 = var19:WaitForChild(var21)
+LOADB			77		var20 = false -- [REDUNDANT]
+SETTABLEKS		78		var19["Visible"] = var20
+LOADK			80		var22 = "PlayerGui"
+NAMECALL		81		var20 = var8:WaitForChild(var22)
+LOADK			83		var22 = "MainInterface"
+NAMECALL		84		var20 = var20:WaitForChild(var22)
+LOADK			86		var22 = "HoldTo"
+NAMECALL		87		var20 = var20:WaitForChild(var22)
+LOADB			89		var21 = false
+SETTABLEKS		90		var20["Visible"] = var21
+LOADB			92		var21 = true
+LOADB			93		var22 = false
+NEWTABLE		94		var23 = {}
+LOADNIL			96		var24 = nil
+GETIMPORT		97		var25 = Instance["new"] -- [REDUNDANT]
+LOADK			99		var26 = "Animation"
+CALL			100		var25 = var25(var26)
+LOADK			101		var26 = "rbxassetid://1251198151" -- [REDUNDANT]
+SETTABLEKS		102		var25["AnimationId"] = var26
+GETIMPORT		104		var26 = Instance["new"] -- [REDUNDANT]
+LOADK			106		var27 = "Animation"
+CALL			107		var26 = var26(var27)
+LOADK			108		var27 = "rbxassetid://1251201894"
+SETTABLEKS		109		var26["AnimationId"] = var27
+LOADNIL			111		var27 = nil
+LOADNIL			112		var28 = nil
+GETTABLEKS		113		var29 = var6["Equipped"] -- [REDUNDANT]
+NEWCLOSURE		115		upvalue[1_var23] = var23
+NEWCLOSURE		116		upvalue[2_var10] = var10
+NEWCLOSURE		117		upvalue[3_var6] = var6
+NEWCLOSURE		118		upvalue[4_var24] = var24
+NEWCLOSURE		119		upvalue[5_var15] = var15
+NEWCLOSURE		120		upvalue[6_var27] = var27
+NEWCLOSURE		121		upvalue[7_var25] = var25
+NEWCLOSURE		122		upvalue[8_var28] = var28
+NEWCLOSURE		123		upvalue[9_var26] = var26
+NEWCLOSURE		124		upvalue[10_var14] = var14
+NEWCLOSURE		125		upvalue[11_var11] = var11
+NEWCLOSURE		126		upvalue[12_var22] = var22
+NEWCLOSURE		127		upvalue[13_var5] = var5
+NEWCLOSURE		128		upvalue[14_var19] = var19
+NEWCLOSURE		129		upvalue[15_var20] = var20
+NEWCLOSURE		130		var31 = function() -- line: 43
+GETIMPORT		0			var1 = _G
+GETTABLEKS		2			var0 = var1["EnableMobileMouseLock"] -- [REDUNDANT]
+LOADB			4			var1 = true -- [REDUNDANT]
+LOADB			5			var2 = true -- [REDUNDANT]
+CALL			6			var0 = var0(var1, var2)
+GETUPVAL		7			var0 = upvalue[upvalue[1_var23]]
+GETUPVAL		8			var1 = upvalue[upvalue[2_var10]] -- [REDUNDANT]
+GETUPVAL		9			var4 = upvalue[upvalue[3_var6]] -- [REDUNDANT]
+LOADK			10			var6 = "Hit"
+LOADN			11			var7 = 1
+CONCAT			12			var5 = var6 .. var7 -- [REDUNDANT]
+GETTABLE		13			var3 = var4[var5] -- [REDUNDANT]
+NAMECALL		14			var1 = var1:LoadAnimation(var3)
+SETTABLEN		16			var0[1] = var1
+GETUPVAL		17			var0 = upvalue[upvalue[1_var23]]
+GETUPVAL		18			var1 = upvalue[upvalue[2_var10]] -- [REDUNDANT]
+GETUPVAL		19			var4 = upvalue[upvalue[3_var6]] -- [REDUNDANT]
+LOADK			20			var6 = "Hit"
+LOADN			21			var7 = 2
+CONCAT			22			var5 = var6 .. var7 -- [REDUNDANT]
+GETTABLE		23			var3 = var4[var5] -- [REDUNDANT]
+NAMECALL		24			var1 = var1:LoadAnimation(var3)
+SETTABLEN		26			var0[2] = var1
+GETUPVAL		27			var0 = upvalue[upvalue[1_var23]]
+GETUPVAL		28			var1 = upvalue[upvalue[2_var10]] -- [REDUNDANT]
+GETUPVAL		29			var4 = upvalue[upvalue[3_var6]] -- [REDUNDANT]
+LOADK			30			var6 = "Hit" -- [REDUNDANT]
+LOADN			31			var7 = 3 -- [REDUNDANT]
+CONCAT			32			var5 = var6 .. var7 -- [REDUNDANT]
+GETTABLE		33			var3 = var4[var5] -- [REDUNDANT]
+NAMECALL		34			var1 = var1:LoadAnimation(var3)
+SETTABLEN		36			var0[3] = var1
+GETUPVAL		37			var0 = upvalue[upvalue[2_var10]] -- [REDUNDANT]
+GETUPVAL		38			var2 = upvalue[upvalue[5_var15]] -- [REDUNDANT]
+NAMECALL		39			var0 = var0:LoadAnimation(var2)
+SETUPVAL		41			upvalue[upvalue[4_var24]] = var0
+GETUPVAL		42			var0 = upvalue[upvalue[2_var10]] -- [REDUNDANT]
+GETUPVAL		43			var2 = upvalue[upvalue[7_var25]] -- [REDUNDANT]
+NAMECALL		44			var0 = var0:LoadAnimation(var2)
+SETUPVAL		46			upvalue[upvalue[6_var27]] = var0
+GETUPVAL		47			var0 = upvalue[upvalue[2_var10]] -- [REDUNDANT]
+GETUPVAL		48			var2 = upvalue[upvalue[9_var26]] -- [REDUNDANT]
+NAMECALL		49			var0 = var0:LoadAnimation(var2)
+SETUPVAL		51			upvalue[upvalue[8_var28]] = var0
+GETUPVAL		52			var0 = upvalue[upvalue[4_var24]] -- [REDUNDANT]
+NAMECALL		53			var0 = var0:Play()
+GETUPVAL		55			var0 = upvalue[upvalue[10_var14]]
+LOADK			56			var1 = "rbxasset://textures\GunCursor.png" -- [REDUNDANT]
+SETTABLEKS		57			var0["Icon"] = var1
+LOADB			59			var0 = true
+SETUPVAL		60			upvalue[upvalue[11_var11]] = var0
+LOADB			61			var0 = false -- [REDUNDANT]
+SETUPVAL		62			upvalue[upvalue[12_var22]] = var0
+GETUPVAL		63			var1 = upvalue[upvalue[13_var5]]
+GETTABLEKS		64			var0 = var1["TouchEnabled"] -- [REDUNDANT]
+JUMPIFNOT		66			if var0 then
+GETUPVAL		0				var0 = upvalue[upvalue[14_var19]]
+LOADB			1				var1 = true -- [REDUNDANT]
+SETTABLEKS		2				var0["Visible"] = var1
+RETURN			4				return 
+RETURN			4			end
+GETUPVAL		67			var0 = upvalue[upvalue[15_var20]]
+LOADB			68			var1 = true -- [REDUNDANT]
+SETTABLEKS		69			var0["Visible"] = var1
+RETURN			71			return 
+RETURN			71		end
+NAMECALL		131		var29 = var29:connect(var31)
+GETTABLEKS		133		var29 = var6["Unequipped"] -- [REDUNDANT]
+NEWCLOSURE		135		upvalue[1_var14] = var14
+NEWCLOSURE		136		upvalue[2_var16] = var16
+NEWCLOSURE		137		upvalue[3_var11] = var11
+NEWCLOSURE		138		upvalue[4_var19] = var19
+NEWCLOSURE		139		upvalue[5_var20] = var20
+NEWCLOSURE		140		upvalue[6_var23] = var23
+NEWCLOSURE		141		upvalue[7_var24] = var24
+NEWCLOSURE		142		upvalue[8_var27] = var27
+NEWCLOSURE		143		upvalue[9_var28] = var28
+NEWCLOSURE		144		var31 = function() -- line: 63
+GETIMPORT		0			var1 = _G
+GETTABLEKS		2			var0 = var1["EnableMobileMouseLock"] -- [REDUNDANT]
+LOADB			4			var1 = false -- [REDUNDANT]
+CALL			5			var0 = var0(var1)
+GETUPVAL		6			var0 = upvalue[upvalue[1_var14]]
+GETUPVAL		7			var1 = upvalue[upvalue[2_var16]]
+SETTABLEKS		8			var0["Icon"] = var1
+LOADB			10			var0 = false -- [REDUNDANT]
+SETUPVAL		11			upvalue[upvalue[3_var11]] = var0
+GETUPVAL		12			var0 = upvalue[upvalue[4_var19]]
+LOADB			13			var1 = false
+SETTABLEKS		14			var0["Visible"] = var1
+GETUPVAL		16			var0 = upvalue[upvalue[5_var20]]
+LOADB			17			var1 = false -- [REDUNDANT]
+SETTABLEKS		18			var0["Visible"] = var1
+GETIMPORT		20			var0 = pairs -- [REDUNDANT]
+NEWTABLE		22			var1 = {
+								[1] = var4[1];
+								[2] = var5[2];
+								[3] = var6[3];
+								[4] = upvalue[upvalue[7_var24]];
+								[5] = upvalue[upvalue[8_var27]];
+								[6] = upvalue[upvalue[9_var28]];
+							} -- [REDUNDANT]
+GETUPVAL		24			var4 = upvalue[upvalue[6_var23]] -- [REDUNDANT]
+GETUPVAL		26			var5 = upvalue[upvalue[6_var23]] -- [REDUNDANT]
+GETUPVAL		28			var6 = upvalue[upvalue[6_var23]] -- [REDUNDANT]
+CALL			34			var0, var1, var2 = var0(var1)
+FORGPREP_NEXT	35			for var3, var4 in var0, var1, var2 do
+LOADN			0				var7 = 0 -- [REDUNDANT]
+NAMECALL		1				var5 = var4:Stop(var7)
+NAMECALL		3				var5 = var4:Destroy()
+NAMECALL		4			end
 RETURN			37			return 
 RETURN			37		end
-NEWCLOSURE		55		upvalue[1_var6] = var6
-NEWCLOSURE		56		upvalue[2_var7] = var7
-NEWCLOSURE		57		function var0.CanFireBullet()
-GETIMPORT		0			var3 = game
-GETTABLEKS		2			var2 = var3["Players"]
-GETTABLEKS		4			var1 = var2["LocalPlayer"] -- [REDUNDANT]
-GETTABLEKS		6			var0 = var1["Character"]
-LOADK			8			var3 = "Humanoid" -- [REDUNDANT]
-NAMECALL		9			var1 = var0:FindFirstChild(var3)
-JUMPIF			11			if not var1 then
-LOADB			0				var2 = false -- [REDUNDANT]
-RETURN			1				return var2
-RETURN			1			end
-LOADB			12			var2 = false
-GETUPVAL		13			var3 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
-LOADN			14			var4 = 0
-JUMPIFNOTLT		15			if var4 < var3 then
-GETUPVAL		0				var3 = upvalue[upvalue[2_var7]] -- [REDUNDANT]
-NOT				1				var2 = not var3
+NAMECALL		145		var29 = var29:connect(var31)
+GETTABLEKS		147		var29 = var6["Destroying"] -- [REDUNDANT]
+NEWCLOSURE		149		upvalue[1_var14] = var14
+NEWCLOSURE		150		upvalue[2_var16] = var16
+NEWCLOSURE		151		upvalue[3_var11] = var11
+NEWCLOSURE		152		upvalue[4_var19] = var19
+NEWCLOSURE		153		upvalue[5_var20] = var20
+NEWCLOSURE		154		upvalue[6_var23] = var23
+NEWCLOSURE		155		upvalue[7_var24] = var24
+NEWCLOSURE		156		upvalue[8_var27] = var27
+NEWCLOSURE		157		upvalue[9_var28] = var28
+NEWCLOSURE		158		var31 = function() -- line: 75
+GETUPVAL		0			var0 = upvalue[upvalue[1_var14]]
+GETUPVAL		1			var1 = upvalue[upvalue[2_var16]]
+SETTABLEKS		2			var0["Icon"] = var1
+LOADB			4			var0 = false -- [REDUNDANT]
+SETUPVAL		5			upvalue[upvalue[3_var11]] = var0
+GETUPVAL		6			var0 = upvalue[upvalue[4_var19]]
+LOADB			7			var1 = false
+SETTABLEKS		8			var0["Visible"] = var1
+GETUPVAL		10			var0 = upvalue[upvalue[5_var20]]
+LOADB			11			var1 = false -- [REDUNDANT]
+SETTABLEKS		12			var0["Visible"] = var1
+GETIMPORT		14			var0 = pairs -- [REDUNDANT]
+NEWTABLE		16			var1 = {
+								[1] = var4[1];
+								[2] = var5[2];
+								[3] = var6[3];
+								[4] = upvalue[upvalue[7_var24]];
+								[5] = upvalue[upvalue[8_var27]];
+								[6] = upvalue[upvalue[9_var28]];
+							} -- [REDUNDANT]
+GETUPVAL		18			var4 = upvalue[upvalue[6_var23]] -- [REDUNDANT]
+GETUPVAL		20			var5 = upvalue[upvalue[6_var23]] -- [REDUNDANT]
+GETUPVAL		22			var6 = upvalue[upvalue[6_var23]] -- [REDUNDANT]
+CALL			28			var0, var1, var2 = var0(var1)
+FORGPREP_NEXT	29			for var3, var4 in var0, var1, var2 do
+LOADN			0				var7 = 0 -- [REDUNDANT]
+NAMECALL		1				var5 = var4:Stop(var7)
+NAMECALL		3				var5 = var4:Destroy()
+NAMECALL		4			end
+RETURN			31			return 
+RETURN			31		end
+NAMECALL		159		var29 = var29:connect(var31)
+LOADNIL			161		var29 = nil -- [REDUNDANT]
+SETGLOBAL		162		continue = var29
+GETTABLEKS		164		var29 = var7["Touched"] -- [REDUNDANT]
+DUPCLOSURE		166		upvalue[1_var9] = var9
+DUPCLOSURE		167		var31 = function(arg0) -- line: 89
+GETTABLEKS		0			var1 = arg0["Parent"] -- [REDUNDANT]
+JUMPIFNOT		2			if var1 then
+GETTABLEKS		0				var1 = arg0["Parent"] -- [REDUNDANT]
+LOADK			2				var3 = "Humanoid" -- [REDUNDANT]
+NAMECALL		3				var1 = var1:FindFirstChild(var3)
+JUMPIFNOT		5				if var1 then
+GETTABLEKS		0					var3 = arg0["Parent"]
+GETTABLEKS		2					var2 = var3["Humanoid"]
+GETTABLEKS		4					var1 = var2["Health"] -- [REDUNDANT]
+LOADK			6					var2 = 0.001 -- [REDUNDANT]
+JUMPIFNOTLT		7					if var2 < var1 then
+GETTABLEKS		0						var1 = arg0["Parent"] -- [REDUNDANT]
+GETUPVAL		2						var2 = upvalue[upvalue[1_var9]] -- [REDUNDANT]
+JUMPIFEQ		3						if var1 ~= var2 then
+GETTABLEKS		0							var2 = arg0["Parent"] -- [REDUNDANT]
+GETTABLEKS		2							var1 = var2["Parent"] -- [REDUNDANT]
+JUMPIFNOT		4							if var1 then
+GETTABLEKS		0								var2 = arg0["Parent"] -- [REDUNDANT]
+GETTABLEKS		2								var1 = var2["Parent"] -- [REDUNDANT]
+GETIMPORT		4								var3 = workspace
+GETTABLEKS		6								var2 = var3["enemies"] -- [REDUNDANT]
+JUMPIFEQ		8								if var1 ~= var2 then
+GETTABLEKS		0									var2 = arg0["Parent"] -- [REDUNDANT]
+GETTABLEKS		2									var1 = var2["Parent"] -- [REDUNDANT]
+GETIMPORT		4									var3 = workspace
+GETTABLEKS		6									var2 = var3["BossFolder"] -- [REDUNDANT]
+JUMPIFNOTEQ		8									if var1 == var2 then
+GETGLOBAL		0										var1 = continue -- [REDUNDANT]
+JUMPIF			2										if not var1 then
+SETGLOBAL		0											continue = arg0
+SETGLOBAL		1										end
+SETGLOBAL		1									end
+JUMPIFNOTEQ		9								end
+JUMPIFEQ		9							end
+JUMPIFEQ		9						end
+JUMPIFEQ		4					end
+JUMPIFNOTLT		8				end
+JUMPIFNOTLT		8			end
+RETURN			3			return 
+RETURN			3		end
+NAMECALL		168		var29 = var29:connect(var31)
+DUPCLOSURE		170		upvalue[1_var18] = var18
+DUPCLOSURE		171		upvalue[2_var7] = var7
+DUPCLOSURE		172		local waitforhit = function() -- line: 95
+GETIMPORT		0			var0 = tick -- [REDUNDANT]
+CALL			2			var0 = var0() -- [REDUNDANT]
+LOADNIL			3			var1 = nil -- [REDUNDANT]
+GETIMPORT		4			var3 = tick -- [REDUNDANT]
+CALL			6			var3 = var3() -- [REDUNDANT]
+SUB				7			var2 = var3 - var0
+GETUPVAL		8			var4 = upvalue[upvalue[1_var18]] -- [REDUNDANT]
+GETTABLEKS		9			var3 = var4["Speed"]
+JUMPIFNOTLT		11			while var2 < var3 do
+GETGLOBAL		0				var2 = continue -- [REDUNDANT]
 JUMPIFNOT		2				if var2 then
-LOADB			0					var2 = false -- [REDUNDANT]
-GETTABLEKS		1					var3 = var1["Health"] -- [REDUNDANT]
-LOADN			3					var4 = 0 -- [REDUNDANT]
-JUMPIFNOTLT		4					if var4 < var3 then
-LOADK			0						var5 = "InMouth" -- [REDUNDANT]
-NAMECALL		1						var3 = var0:GetAttribute(var5)
-NOT				3						var2 = not var3
-NOT				3					end
-JUMPIFNOTLT		5				end
-JUMPIFNOTLT		5			end
-RETURN			17			return var2
-RETURN			17		end
-NEWCLOSURE		59		upvalue[1_var6] = var6
-NEWCLOSURE		60		upvalue[2_var4] = var4
-NEWCLOSURE		61		upvalue[3_var2] = var2
-NEWCLOSURE		62		upvalue[4_var5] = var5
-NEWCLOSURE		63		function var0.BulletFired(arg0)
-GETUPVAL		0			var1 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
-LOADN			1			var2 = 1
-JUMPIFNOTLT		2			if var1 < var2 then
-GETIMPORT		0				var1 = print -- [REDUNDANT]
-LOADK			2				var2 = "Bullet Count ERROR" -- [REDUNDANT]
-CALL			3				var1 = var1(var2) -- [REDUNDANT]
-LOADB			4				var1 = false -- [REDUNDANT]
-RETURN			5				return var1
-RETURN			5			end
-GETUPVAL		4			var1 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
-SUBK			5			var1 = var1 - 1 -- [REDUNDANT]
-SETUPVAL		6			upvalue[upvalue[1_var6]] = var1
-GETUPVAL		7			var1 = upvalue[upvalue[2_var4]]
-GETTABLEKS		8			var2 = arg0["Name"] -- [REDUNDANT]
-GETUPVAL		10			var3 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
-SETTABLE		11			var1[var2] = var3
-GETUPVAL		12			var1 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
-JUMPXEQKN		13			if var1 == inf then
-GETUPVAL		0				var2 = upvalue[upvalue[3_var2]]
-GETTABLEKS		1				var1 = var2["setBulletText"] -- [REDUNDANT]
-LOADK			3				var2 = "" -- [REDUNDANT]
-CALL			4				var1 = var1(var2)
-RETURN			5				return 
-RETURN			5			end
-GETUPVAL		15			var2 = upvalue[upvalue[3_var2]] -- [REDUNDANT]
-GETTABLEKS		16			var1 = var2["setBulletText"] -- [REDUNDANT]
-GETUPVAL		18			var7 = upvalue[upvalue[1_var6]] -- [REDUNDANT]
-GETIMPORT		19			var6 = tostring -- [REDUNDANT]
-CALL			21			var6 = var6(var7) -- [REDUNDANT]
-MOVE			22			var3 = var6 -- [REDUNDANT]
-LOADK			23			var4 = " / "
-GETUPVAL		24			var6 = upvalue[upvalue[4_var5]] -- [REDUNDANT]
-GETIMPORT		25			var5 = tostring -- [REDUNDANT]
-CALL			27			var5 = var5(var6) -- [REDUNDANT]
-CONCAT			28			var2 = var3 .. var5 -- [REDUNDANT]
-CALL			29			var1 = var1(var2)
-RETURN			30			return 
-RETURN			30		end
-NEWCLOSURE		65		upvalue[1_var7] = var7
-NEWCLOSURE		66		function var0.isReloading()
-GETUPVAL		0			var0 = upvalue[upvalue[1_var7]] -- [REDUNDANT]
-RETURN			1			return var0
-RETURN			1		end
-NEWCLOSURE		68		upvalue[1_var7] = var7
-NEWCLOSURE		69		upvalue[2_var8] = var8
-NEWCLOSURE		70		upvalue[3_var1] = var1
-NEWCLOSURE		71		upvalue[4_var3] = var3
-NEWCLOSURE		72		upvalue[5_var2] = var2
-NEWCLOSURE		73		upvalue[6_var9] = var9
-NEWCLOSURE		74		upvalue[7_var6] = var6
-NEWCLOSURE		75		upvalue[8_var5] = var5
-NEWCLOSURE		76		upvalue[9_var4] = var4
-NEWCLOSURE		77		function var0.Reload(arg0)
-GETUPVAL		0			var1 = upvalue[upvalue[1_var7]]
-JUMPIFNOT		1			if var1 then
+GETGLOBAL		0					var1 = continue
+GETUPVAL		2					var3 = upvalue[upvalue[2_var7]] -- [REDUNDANT]
+GETTABLEKS		3					var2 = var3["stab"] -- [REDUNDANT]
+NAMECALL		5					var2 = var2:Play()
+NAMECALL		6				else
+GETIMPORT		0					var2 = wait -- [REDUNDANT]
+LOADN			2					var3 = 0 -- [REDUNDANT]
+CALL			3					var2 = var2(var3)
+CALL			3				end
+CALL			3			end
+SETGLOBAL		13			continue = var2
+RETURN			15			return var1
+RETURN			15		end
+SETGLOBAL		173		waitforhit = waitforhit
+LOADN			175		var29 = 0 -- [REDUNDANT]
+GETTABLEKS		176		var30 = var5["InputBegan"] -- [REDUNDANT]
+NEWCLOSURE		178		upvalue[1_var11] = var11
+NEWCLOSURE		179		upvalue[2_var14] = var14
+NEWCLOSURE		180		upvalue[3_var10] = var10
+NEWCLOSURE		181		upvalue[4_var21] = var21
+NEWCLOSURE		182		upvalue[5_var13] = var13
+NEWCLOSURE		183		upvalue[6_var12] = var12
+NEWCLOSURE		184		upvalue[7_var5] = var5
+NEWCLOSURE		185		upvalue[8_var27] = var27
+NEWCLOSURE		186		upvalue[9_var22] = var22
+NEWCLOSURE		187		var32 = function(arg0, arg1) -- line: 111
+JUMPIFNOT		0			if arg1 then
 RETURN			0				return 
 RETURN			0			end
-LOADB			2			var1 = false
-SETUPVAL		3			upvalue[upvalue[2_var8]] = var1
-LOADB			4			var1 = true -- [REDUNDANT]
-SETUPVAL		5			upvalue[upvalue[1_var7]] = var1
-GETIMPORT		6			var3 = game -- [REDUNDANT]
-GETTABLEKS		8			var2 = var3["SoundService"] -- [REDUNDANT]
-GETTABLEKS		10			var1 = var2["Reload"] -- [REDUNDANT]
-NAMECALL		12			var1 = var1:Play()
-GETUPVAL		14			var4 = upvalue[upvalue[3_var1]] -- [REDUNDANT]
-GETTABLEKS		15			var3 = var4["get"] -- [REDUNDANT]
-CALL			17			var3 = var3() -- [REDUNDANT]
-GETTABLEKS		18			var4 = arg0["Name"] -- [REDUNDANT]
-GETTABLE		20			var2 = var3[var4] -- [REDUNDANT]
-GETTABLEKS		21			var1 = var2["ReloadTime"]
-GETUPVAL		23			var3 = upvalue[upvalue[4_var3]] -- [REDUNDANT]
-GETTABLEKS		24			var2 = var3["playReload"] -- [REDUNDANT]
-MOVE			26			var3 = arg0 -- [REDUNDANT]
-MOVE			27			var4 = var1 -- [REDUNDANT]
-CALL			28			var2 = var2(var3, var4)
-GETUPVAL		29			var3 = upvalue[upvalue[5_var2]] -- [REDUNDANT]
-GETTABLEKS		30			var2 = var3["hideReloadButton"] -- [REDUNDANT]
-CALL			32			var2 = var2() -- [REDUNDANT]
-LOADN			33			var2 = 0 -- [REDUNDANT]
-GETIMPORT		34			var4 = game -- [REDUNDANT]
-LOADK			36			var6 = "RunService" -- [REDUNDANT]
-NAMECALL		37			var4 = var4:GetService(var6)
-GETTABLEKS		39			var3 = var4["Heartbeat"] -- [REDUNDANT]
-NEWCLOSURE		41			upvalue[1_var2] = var2
-NEWCLOSURE		42			upvalue[2_upvalue[2_var8]] = upvalue[2_var8]
-NEWCLOSURE		43			upvalue[3_upvalue[1_var7]] = upvalue[1_var7]
-NEWCLOSURE		44			upvalue[4_upvalue[6_var9]] = upvalue[6_var9]
-NEWCLOSURE		45			upvalue[5_var1] = var1
-NEWCLOSURE		46			upvalue[6_upvalue[7_var6]] = upvalue[7_var6]
-NEWCLOSURE		47			upvalue[7_upvalue[8_var5]] = upvalue[8_var5]
-NEWCLOSURE		48			upvalue[8_upvalue[9_var4]] = upvalue[9_var4]
-NEWCLOSURE		49			upvalue[9_arg0] = arg0
-NEWCLOSURE		50			upvalue[10_upvalue[5_var2]] = upvalue[5_var2]
-NEWCLOSURE		51			var5 = function(arg0) -- line: 77
-GETUPVAL		0				var1 = upvalue[upvalue[1_var2]] -- [REDUNDANT]
-ADD				1				var1 = var1 + arg0 -- [REDUNDANT]
-SETUPVAL		2				upvalue[upvalue[1_var2]] = var1
-GETUPVAL		3				var1 = upvalue[upvalue[2_upvalue[2_var8]]]
-JUMPIFNOT		4				if var1 then
-LOADB			0					var1 = false
-SETUPVAL		1					upvalue[upvalue[2_upvalue[2_var8]]] = var1
-LOADB			2					var1 = false -- [REDUNDANT]
-SETUPVAL		3					upvalue[upvalue[3_upvalue[1_var7]]] = var1
-GETIMPORT		4					var3 = game -- [REDUNDANT]
-GETTABLEKS		6					var2 = var3["SoundService"] -- [REDUNDANT]
-GETTABLEKS		8					var1 = var2["Reload"] -- [REDUNDANT]
-NAMECALL		10					var1 = var1:Stop()
-GETUPVAL		12					var1 = upvalue[upvalue[4_upvalue[6_var9]]] -- [REDUNDANT]
-NAMECALL		13					var1 = var1:Disconnect()
-LOADNIL			15					var1 = nil -- [REDUNDANT]
-SETUPVAL		16					upvalue[upvalue[4_upvalue[6_var9]]] = var1
-RETURN			17					return 
-RETURN			17				end
-GETUPVAL		5				var1 = upvalue[upvalue[1_var2]]
-GETUPVAL		6				var2 = upvalue[upvalue[5_var1]] -- [REDUNDANT]
-JUMPIFNOTLE		7				if var2 <= var1 then
-GETUPVAL		0					var1 = upvalue[upvalue[7_upvalue[8_var5]]] -- [REDUNDANT]
-SETUPVAL		1					upvalue[upvalue[6_upvalue[7_var6]]] = var1
-GETUPVAL		2					var1 = upvalue[upvalue[8_upvalue[9_var4]]]
-GETUPVAL		3					var3 = upvalue[upvalue[9_arg0]] -- [REDUNDANT]
-GETTABLEKS		4					var2 = var3["Name"] -- [REDUNDANT]
-GETUPVAL		6					var3 = upvalue[upvalue[6_upvalue[7_var6]]] -- [REDUNDANT]
-SETTABLE		7					var1[var2] = var3
-LOADB			8					var1 = false -- [REDUNDANT]
-SETUPVAL		9					upvalue[upvalue[3_upvalue[1_var7]]] = var1
-GETUPVAL		10					var1 = upvalue[upvalue[6_upvalue[7_var6]]] -- [REDUNDANT]
-JUMPXEQKN		11					if var1 == inf then
-GETUPVAL		0						var2 = upvalue[upvalue[10_upvalue[5_var2]]]
-GETTABLEKS		1						var1 = var2["setBulletText"] -- [REDUNDANT]
-LOADK			3						var2 = "" -- [REDUNDANT]
-CALL			4						var1 = var1(var2)
-CALL			4					else
-GETUPVAL		0						var2 = upvalue[upvalue[10_upvalue[5_var2]]] -- [REDUNDANT]
-GETTABLEKS		1						var1 = var2["setBulletText"] -- [REDUNDANT]
-GETUPVAL		3						var7 = upvalue[upvalue[6_upvalue[7_var6]]] -- [REDUNDANT]
-GETIMPORT		4						var6 = tostring -- [REDUNDANT]
-CALL			6						var6 = var6(var7) -- [REDUNDANT]
-MOVE			7						var3 = var6 -- [REDUNDANT]
-LOADK			8						var4 = " / "
-GETUPVAL		9						var6 = upvalue[upvalue[7_upvalue[8_var5]]] -- [REDUNDANT]
-GETIMPORT		10						var5 = tostring -- [REDUNDANT]
-CALL			12						var5 = var5(var6) -- [REDUNDANT]
-CONCAT			13						var2 = var3 .. var5 -- [REDUNDANT]
-CALL			14						var1 = var1(var2)
-CALL			14					end
-GETUPVAL		13					var1 = upvalue[upvalue[4_upvalue[6_var9]]] -- [REDUNDANT]
-NAMECALL		14					var1 = var1:Disconnect()
-LOADNIL			16					var1 = nil -- [REDUNDANT]
-SETUPVAL		17					upvalue[upvalue[4_upvalue[6_var9]]] = var1
-RETURN			18					return 
-RETURN			18				end
-RETURN			9				return 
-RETURN			9			end
-NAMECALL		52			var3 = var3:Connect(var5)
-SETUPVAL		54			upvalue[upvalue[6_var9]] = var3
+GETTABLEKS		1			var2 = arg0["UserInputType"] -- [REDUNDANT]
+GETIMPORT		3			var3 = Enum["UserInputType"]["MouseButton1"]
+JUMPIFEQ		5			if var2 ~= var3 then
+GETTABLEKS		0				var2 = arg0["UserInputType"] -- [REDUNDANT]
+GETIMPORT		2				var3 = Enum["UserInputType"]["Touch"]
+JUMPIFEQ		4				if var2 ~= var3 then
+GETTABLEKS		0					var2 = arg0["KeyCode"] -- [REDUNDANT]
+GETIMPORT		2					var3 = Enum["KeyCode"]["ButtonR2"]
+JUMPIFNOTEQ		4					if var2 == var3 then
+GETUPVAL		0						var2 = upvalue[upvalue[1_var11]] -- [REDUNDANT]
+JUMPIF			1						if not var2 then
+RETURN			0							return 
+RETURN			0						end
+GETUPVAL		2						var2 = upvalue[upvalue[2_var14]]
+LOADK			3						var3 = "rbxasset://textures\GunCursor.png" -- [REDUNDANT]
+SETTABLEKS		4						var2["Icon"] = var3
+GETUPVAL		6						var3 = upvalue[upvalue[3_var10]]
+GETTABLEKS		7						var2 = var3["Health"]
+LOADN			9						var3 = 0
+JUMPIFNOTLE		10						if var2 <= var3 then
+RETURN			0							return 
+RETURN			0						end
+JUMPIF			12						if not var2 then
+JUMPIFNOT		0							while var2 do
+JUMPIFNOT		0								repeat
+LOADB			0									var2 = false -- [REDUNDANT]
+SETUPVAL		1									upvalue[upvalue[4_var21]] = var2
+GETIMPORT		2									var2 = wait -- [REDUNDANT]
+CALL			4									var2 = var2()
+GETUPVAL		5									var2 = upvalue[upvalue[5_var13]]
+GETUPVAL		7									var2 = upvalue[upvalue[6_var12]] -- [REDUNDANT]
+GETUPVAL		9									var2 = upvalue[upvalue[1_var11]] -- [REDUNDANT]
+GETUPVAL		9								until var2
+GETUPVAL		9							end
+GETUPVAL		9						end
+JUMPIF			13						if not var2 then
+GETUPVAL		0							var2 = upvalue[upvalue[1_var11]] -- [REDUNDANT]
+JUMPIF			1							if not var2 then
+RETURN			0								return 
+RETURN			0							end
+RETURN			0						end
+GETIMPORT		14						var2 = wait -- [REDUNDANT]
+LOADK			16						var3 = 0.2 -- [REDUNDANT]
+CALL			17						var2 = var2(var3)
+GETUPVAL		18						var2 = upvalue[upvalue[1_var11]] -- [REDUNDANT]
+JUMPIFNOT		19						if var2 then
+GETUPVAL		0							var2 = upvalue[upvalue[4_var21]] -- [REDUNDANT]
+JUMPIF			1							if not var2 then
+GETUPVAL		0								var2 = upvalue[upvalue[5_var13]] -- [REDUNDANT]
+JUMPIF			1								if not var2 then
+GETUPVAL		0									var2 = upvalue[upvalue[6_var12]] -- [REDUNDANT]
+JUMPIF			1									if not var2 then
+GETUPVAL		0										var3 = upvalue[upvalue[7_var5]] -- [REDUNDANT]
+GETTABLEKS		1										var2 = var3["TouchEnabled"] -- [REDUNDANT]
+JUMPIFNOT		3										if var2 then
+RETURN			0											return 
+RETURN			0										end
+RETURN			0									end
+RETURN			0								end
+RETURN			0							end
+RETURN			0						end
+GETUPVAL		20						var2 = upvalue[upvalue[8_var27]] -- [REDUNDANT]
+NAMECALL		21						var2 = var2:Play()
+LOADB			23						var2 = true -- [REDUNDANT]
+SETUPVAL		24						upvalue[upvalue[9_var22]] = var2
+SETUPVAL		24					end
+JUMPIFNOTEQ		5				end
+JUMPIFEQ		5			end
+RETURN			7			return 
+RETURN			7		end
+NAMECALL		188		var30 = var30:connect(var32)
+NEWCLOSURE		190		upvalue[1_var27] = var27
+NEWCLOSURE		191		upvalue[2_var28] = var28
+NEWCLOSURE		192		upvalue[3_var18] = var18
+NEWCLOSURE		193		upvalue[4_var22] = var22
+NEWCLOSURE		194		upvalue[5_var13] = var13
+NEWCLOSURE		195		upvalue[6_var6] = var6
+NEWCLOSURE		196		upvalue[7_var5] = var5
+NEWCLOSURE		197		upvalue[8_var14] = var14
+NEWCLOSURE		198		upvalue[9_var4] = var4
+NEWCLOSURE		199		upvalue[10_var3] = var3
+NEWCLOSURE		200		local _throw = function() -- line: 129
+GETIMPORT		0			var0 = tick -- [REDUNDANT]
+CALL			2			var0 = var0()
+GETUPVAL		3			var1 = upvalue[upvalue[1_var27]] -- [REDUNDANT]
+NAMECALL		4			var1 = var1:Stop()
+GETUPVAL		6			var1 = upvalue[upvalue[2_var28]] -- [REDUNDANT]
+LOADNIL			7			var3 = nil -- [REDUNDANT]
+LOADNIL			8			var4 = nil -- [REDUNDANT]
+GETUPVAL		9			var7 = upvalue[upvalue[3_var18]] -- [REDUNDANT]
+GETTABLEKS		10			var6 = var7["Speed"] -- [REDUNDANT]
+DIVRK			12			var5 = 3 / var6 -- [REDUNDANT]
+NAMECALL		13			var1 = var1:Play(var3, var4, var5)
+LOADB			15			var1 = false -- [REDUNDANT]
+SETUPVAL		16			upvalue[upvalue[4_var22]] = var1
+SETUPVAL		17			upvalue[upvalue[5_var13]] = var0
+GETUPVAL		18			var3 = upvalue[upvalue[6_var6]] -- [REDUNDANT]
+GETTABLEKS		19			var2 = var3["Handle"] -- [REDUNDANT]
+GETTABLEKS		21			var1 = var2["thrown"] -- [REDUNDANT]
+NAMECALL		23			var1 = var1:Play()
+GETUPVAL		25			var3 = upvalue[upvalue[7_var5]] -- [REDUNDANT]
+GETTABLEKS		26			var2 = var3["TouchEnabled"]
+JUMPIFNOT		28			if var2 then
+GETUPVAL		0				var4 = upvalue[upvalue[7_var5]] -- [REDUNDANT]
+GETTABLEKS		1				var3 = var4["MouseEnabled"] -- [REDUNDANT]
+NOT				3				var2 = not var3
+NOT				3			end
+JUMPIFNOT		29			if var2 then
+GETUPVAL		0				var2 = upvalue[upvalue[8_var14]] -- [REDUNDANT]
+GETTABLEKS		1				var1 = var2["GetHit"] -- [REDUNDANT]
+CALL			3				var1 = var1() -- [REDUNDANT]
+JUMPIF			4				if not var1 then
+GETUPVAL		0					var2 = upvalue[upvalue[8_var14]] -- [REDUNDANT]
+GETTABLEKS		1					var1 = var2["Hit"]
+GETTABLEKS		2				end
+GETTABLEKS		2			end
+GETIMPORT		30			var2 = tick -- [REDUNDANT]
+CALL			32			var2 = var2()
+GETIMPORT		33			var3 = spawn -- [REDUNDANT]
+NEWCLOSURE		35			upvalue[1_upvalue[9_var4]] = upvalue[9_var4]
+NEWCLOSURE		36			upvalue[2_upvalue[10_var3]] = upvalue[10_var3]
+NEWCLOSURE		37			upvalue[3_upvalue[6_var6]] = upvalue[6_var6]
+NEWCLOSURE		38			upvalue[4_var1] = var1
+NEWCLOSURE		39			var4 = function() -- line: 143
+GETUPVAL		0				var0 = upvalue[upvalue[1_upvalue[9_var4]]] -- [REDUNDANT]
+GETUPVAL		1				var1 = upvalue[upvalue[2_upvalue[10_var3]]] -- [REDUNDANT]
+LOADK			2				var2 = "throw" -- [REDUNDANT]
+GETUPVAL		3				var4 = upvalue[upvalue[3_upvalue[6_var6]]] -- [REDUNDANT]
+GETTABLEKS		4				var3 = var4["Name"] -- [REDUNDANT]
+GETUPVAL		6				var4 = upvalue[upvalue[4_var1]] -- [REDUNDANT]
+CALL			7				var0 = var0(var1, var2, var3, var4)
+RETURN			8				return 
+RETURN			8			end
+CALL			40			var3 = var3(var4)
+GETIMPORT		41			var3 = wait -- [REDUNDANT]
+LOADN			43			var4 = 0 -- [REDUNDANT]
+CALL			44			var3 = var3(var4)
+GETUPVAL		45			var4 = upvalue[upvalue[2_var28]]
+GETTABLEKS		46			var3 = var4["IsPlaying"]
+JUMPXEQKB		48			while var3 == false do
+JUMPXEQKB		48			end
+LOADK			50			var4 = 0.25 -- [REDUNDANT]
+CALL			51			var3 = var3(var4)
+GETUPVAL		52			var3 = upvalue[upvalue[5_var13]]
+JUMPIFNOTEQ		53			if var3 == var0 then
+LOADB			0				var3 = false -- [REDUNDANT]
+SETUPVAL		1				upvalue[upvalue[5_var13]] = var3
+SETUPVAL		1			end
 RETURN			55			return 
 RETURN			55		end
-RETURN			79		return var0
+GETTABLEKS		201		var31 = var5["InputEnded"] -- [REDUNDANT]
+NEWCLOSURE		203		upvalue[1_var10] = var10
+NEWCLOSURE		204		upvalue[2_var21] = var21
+NEWCLOSURE		205		upvalue[3_var22] = var22
+NEWCLOSURE		206		upvalue[4_var13] = var13
+NEWCLOSURE		207		upvalue[5_var11] = var11
+NEWCLOSURE		208		upvalue[6__throw] = _throw
+NEWCLOSURE		209		upvalue[7_var12] = var12
+NEWCLOSURE		210		upvalue[8_var27] = var27
+NEWCLOSURE		211		upvalue[9_var29] = var29
+NEWCLOSURE		212		upvalue[10_var23] = var23
+NEWCLOSURE		213		upvalue[11_var18] = var18
+NEWCLOSURE		214		upvalue[12_var7] = var7
+NEWCLOSURE		215		upvalue[13_var4] = var4
+NEWCLOSURE		216		upvalue[14_var3] = var3
+NEWCLOSURE		217		upvalue[15_var6] = var6
+NEWCLOSURE		218		var33 = function(arg0, arg1) -- line: 152
+JUMPIFNOT		0			if arg1 then
+RETURN			0				return 
+RETURN			0			end
+GETTABLEKS		1			var2 = arg0["UserInputType"] -- [REDUNDANT]
+GETIMPORT		3			var3 = Enum["UserInputType"]["MouseButton1"]
+JUMPIFEQ		5			if var2 ~= var3 then
+GETTABLEKS		0				var2 = arg0["UserInputType"] -- [REDUNDANT]
+GETIMPORT		2				var3 = Enum["UserInputType"]["Touch"]
+JUMPIFEQ		4				if var2 ~= var3 then
+GETTABLEKS		0					var2 = arg0["KeyCode"] -- [REDUNDANT]
+GETIMPORT		2					var3 = Enum["KeyCode"]["ButtonR2"]
+JUMPIFNOTEQ		4					if var2 == var3 then
+GETUPVAL		0						var3 = upvalue[upvalue[1_var10]]
+GETTABLEKS		1						var2 = var3["Health"]
+LOADN			3						var3 = 0 -- [REDUNDANT]
+JUMPIFNOTLE		4						if var2 <= var3 then
+RETURN			0							return 
+RETURN			0						end
+LOADB			6						var2 = true -- [REDUNDANT]
+SETUPVAL		7						upvalue[upvalue[2_var21]] = var2
+GETUPVAL		8						var2 = upvalue[upvalue[3_var22]]
+JUMPIFNOT		9						if var2 then
+GETUPVAL		0							var2 = upvalue[upvalue[4_var13]] -- [REDUNDANT]
+JUMPIF			1							if not var2 then
+GETUPVAL		0								var2 = upvalue[upvalue[5_var11]] -- [REDUNDANT]
+JUMPIF			1								if not var2 then
+RETURN			0									return 
+RETURN			0								end
+RETURN			0							end
+GETUPVAL		2							var2 = upvalue[upvalue[6__throw]] -- [REDUNDANT]
+CALL			3							var2 = var2()
+CALL			3						else
+GETUPVAL		0							var2 = upvalue[upvalue[4_var13]] -- [REDUNDANT]
+JUMPIF			1							if not var2 then
+GETUPVAL		0								var2 = upvalue[upvalue[7_var12]] -- [REDUNDANT]
+JUMPIF			1								if not var2 then
+GETUPVAL		0									var2 = upvalue[upvalue[5_var11]] -- [REDUNDANT]
+JUMPIF			1									if not var2 then
+RETURN			0										return 
+RETURN			0									end
+RETURN			0								end
+RETURN			0							end
+GETUPVAL		2							var3 = upvalue[upvalue[8_var27]] -- [REDUNDANT]
+GETTABLEKS		3							var2 = var3["IsPlaying"] -- [REDUNDANT]
+JUMPIFNOT		5							if var2 then
+GETUPVAL		0								var2 = upvalue[upvalue[8_var27]] -- [REDUNDANT]
+NAMECALL		1								var2 = var2:Stop()
+NAMECALL		2							end
+GETUPVAL		6							var4 = upvalue[upvalue[9_var29]] -- [REDUNDANT]
+MODK			7							var3 = var4 % 3 -- [REDUNDANT]
+ADDK			8							var2 = var3 + 1 -- [REDUNDANT]
+SETUPVAL		9							upvalue[upvalue[9_var29]] = var2
+GETUPVAL		10							var3 = upvalue[upvalue[10_var23]] -- [REDUNDANT]
+GETUPVAL		11							var4 = upvalue[upvalue[9_var29]] -- [REDUNDANT]
+GETTABLE		12							var2 = var3[var4]
+LOADNIL			13							var5 = nil -- [REDUNDANT]
+LOADNIL			14							var6 = nil -- [REDUNDANT]
+GETUPVAL		15							var9 = upvalue[upvalue[11_var18]] -- [REDUNDANT]
+GETTABLEKS		16							var8 = var9["Speed"] -- [REDUNDANT]
+DIVRK			18							var7 = 14 / var8 -- [REDUNDANT]
+NAMECALL		19							var3 = var2:Play(var5, var6, var7)
+GETUPVAL		21							var4 = upvalue[upvalue[12_var7]] -- [REDUNDANT]
+GETTABLEKS		22							var3 = var4["slash"] -- [REDUNDANT]
+NAMECALL		24							var3 = var3:Play()
+LOADB			26							var3 = true -- [REDUNDANT]
+SETUPVAL		27							upvalue[upvalue[7_var12]] = var3
+GETIMPORT		28							var3 = tick -- [REDUNDANT]
+CALL			30							var3 = var3()
+GETIMPORT		31							var4 = spawn -- [REDUNDANT]
+DUPCLOSURE		33							upvalue[1_upvalue[13_var4]] = upvalue[13_var4]
+DUPCLOSURE		34							upvalue[2_upvalue[14_var3]] = upvalue[14_var3]
+DUPCLOSURE		35							upvalue[3_upvalue[15_var6]] = upvalue[15_var6]
+DUPCLOSURE		36							var5 = function() -- line: 177
+GETUPVAL		0								var0 = upvalue[upvalue[1_upvalue[13_var4]]] -- [REDUNDANT]
+GETUPVAL		1								var1 = upvalue[upvalue[2_upvalue[14_var3]]] -- [REDUNDANT]
+LOADK			2								var2 = "hit" -- [REDUNDANT]
+GETUPVAL		3								var4 = upvalue[upvalue[3_upvalue[15_var6]]] -- [REDUNDANT]
+GETTABLEKS		4								var3 = var4["Name"] -- [REDUNDANT]
+GETGLOBAL		6								var4 = waitforhit -- [REDUNDANT]
+CALL			8								var4 = var4() -- [REDUNDANT]
+CALL			9								var0 = var0(var1, var2, var3, var4)
+RETURN			10								return 
+RETURN			10							end
+CALL			37							var4 = var4(var5)
+GETIMPORT		38							var4 = wait -- [REDUNDANT]
+LOADN			40							var5 = 0 -- [REDUNDANT]
+CALL			41							var4 = var4(var5)
+GETTABLEKS		42							var4 = var2["IsPlaying"]
+JUMPXEQKB		44							while var4 == false do
+JUMPXEQKB		44							end
+SETUPVAL		46							upvalue[upvalue[7_var12]] = var4
+SETUPVAL		46						end
+LOADB			10						var2 = false -- [REDUNDANT]
+SETUPVAL		11						upvalue[upvalue[3_var22]] = var2
+SETUPVAL		11					end
+JUMPIFNOTEQ		5				end
+JUMPIFEQ		5			end
+RETURN			7			return 
+RETURN			7		end
+NAMECALL		219		var31 = var31:connect(var33)
+GETTABLEKS		221		var31 = var5["TouchEnabled"] -- [REDUNDANT]
+JUMPIFNOT		223		if var31 then
+GETTABLEKS		0			var31 = var19["MouseButton1Click"] -- [REDUNDANT]
+NEWCLOSURE		2			upvalue[1_var10] = var10
+NEWCLOSURE		3			upvalue[2_var11] = var11
+NEWCLOSURE		4			upvalue[3_var13] = var13
+NEWCLOSURE		5			upvalue[4_var27] = var27
+NEWCLOSURE		6			upvalue[5_var22] = var22
+NEWCLOSURE		7			upvalue[6__throw] = _throw
+NEWCLOSURE		8			var33 = function() -- line: 191
+GETUPVAL		0				var1 = upvalue[upvalue[1_var10]]
+GETTABLEKS		1				var0 = var1["Health"] -- [REDUNDANT]
+LOADN			3				var1 = 0
+JUMPIFNOTLE		4				if var0 <= var1 then
+RETURN			0					return 
+RETURN			0				end
+GETUPVAL		6				var0 = upvalue[upvalue[2_var11]] -- [REDUNDANT]
+JUMPIFNOT		7				if var0 then
+GETUPVAL		0					var0 = upvalue[upvalue[3_var13]] -- [REDUNDANT]
+JUMPIFNOT		1					if var0 then
+RETURN			0						return 
+RETURN			0					end
+RETURN			0				end
+GETUPVAL		8				var0 = upvalue[upvalue[4_var27]] -- [REDUNDANT]
+NAMECALL		9				var0 = var0:Play()
+LOADB			11				var0 = true -- [REDUNDANT]
+SETUPVAL		12				upvalue[upvalue[5_var22]] = var0
+GETIMPORT		13				var1 = _G -- [REDUNDANT]
+GETTABLEKS		15				var0 = var1["Shiftlock"] -- [REDUNDANT]
+JUMPIFNOT		17				if var0 then
+GETUPVAL		0					var0 = upvalue[upvalue[6__throw]] -- [REDUNDANT]
+CALL			1					var0 = var0()
+CALL			1				end
+RETURN			18				return 
+RETURN			18			end
+NAMECALL		9			var31 = var31:connect(var33)
+LOADK			11			var33 = "PlayerGui"
+NAMECALL		12			var31 = var8:WaitForChild(var33)
+LOADK			14			var33 = "TouchGui"
+NAMECALL		15			var31 = var31:WaitForChild(var33)
+LOADK			17			var33 = "TouchControlFrame"
+NAMECALL		18			var31 = var31:WaitForChild(var33)
+LOADK			20			var33 = "JumpButton" -- [REDUNDANT]
+NAMECALL		21			var31 = var31:WaitForChild(var33)
+GETTABLEKS		23			var32 = var19["Size"] -- [REDUNDANT]
+SETTABLEKS		25			var31["Size"] = var32
+GETIMPORT		27			var32 = UDim2["new"] -- [REDUNDANT]
+GETTABLEKS		29			var35 = var31["Position"] -- [REDUNDANT]
+GETTABLEKS		31			var34 = var35["X"] -- [REDUNDANT]
+GETTABLEKS		33			var33 = var34["Scale"] -- [REDUNDANT]
+GETTABLEKS		35			var36 = var31["Position"] -- [REDUNDANT]
+GETTABLEKS		37			var35 = var36["X"] -- [REDUNDANT]
+GETTABLEKS		39			var34 = var35["Offset"] -- [REDUNDANT]
+GETTABLEKS		41			var37 = var31["Position"] -- [REDUNDANT]
+GETTABLEKS		43			var36 = var37["Y"] -- [REDUNDANT]
+GETTABLEKS		45			var35 = var36["Scale"] -- [REDUNDANT]
+GETTABLEKS		47			var39 = var31["Position"] -- [REDUNDANT]
+GETTABLEKS		49			var38 = var39["Y"] -- [REDUNDANT]
+GETTABLEKS		51			var37 = var38["Offset"] -- [REDUNDANT]
+GETTABLEKS		53			var40 = var19["Size"] -- [REDUNDANT]
+GETTABLEKS		55			var39 = var40["Y"] -- [REDUNDANT]
+GETTABLEKS		57			var38 = var39["Offset"] -- [REDUNDANT]
+SUB				59			var36 = var37 - var38 -- [REDUNDANT]
+CALL			60			var32 = var32(var33, var34, var35, var36) -- [REDUNDANT]
+SETTABLEKS		61			var19["Position"] = var32
+SETTABLEKS		62		end
+RETURN			224		return 
