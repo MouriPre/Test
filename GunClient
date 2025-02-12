@@ -11,6 +11,14 @@ local flySpeed = 5  -- Tốc độ mặc định
 local maxFlySpeed = 50 -- Giới hạn tốc độ
 local acceleration = 2  -- Tốc độ tăng dần
 
+-- Biến theo dõi phím được nhấn
+local moveKeys = {
+    W = false,
+    A = false,
+    S = false,
+    D = false
+}
+
 -- 🚀 Tạo BodyVelocity và BodyGyro
 local bodyVelocity = Instance.new("BodyVelocity")
 bodyVelocity.MaxForce = Vector3.new(4000, 4000, 4000)
@@ -22,31 +30,62 @@ bodyGyro.Parent = humanoidRootPart
 
 humanoid.PlatformStand = true
 
+-- Xử lý input
+UserInputService.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.W then
+        moveKeys.W = true
+    elseif input.KeyCode == Enum.KeyCode.A then
+        moveKeys.A = true
+    elseif input.KeyCode == Enum.KeyCode.S then
+        moveKeys.S = true
+    elseif input.KeyCode == Enum.KeyCode.D then
+        moveKeys.D = true
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.W then
+        moveKeys.W = false
+    elseif input.KeyCode == Enum.KeyCode.A then
+        moveKeys.A = false
+    elseif input.KeyCode == Enum.KeyCode.S then
+        moveKeys.S = false
+    elseif input.KeyCode == Enum.KeyCode.D then
+        moveKeys.D = false
+    end
+end)
+
 RunService.RenderStepped:Connect(function()
     -- Giữ nhân vật thẳng với hướng camera
     bodyGyro.CFrame = workspace.CurrentCamera.CFrame
 
-    -- Lấy hướng di chuyển và camera
+    -- Lấy hướng camera
     local cameraCF = workspace.CurrentCamera.CFrame
-    local moveVector = humanoid.MoveDirection
-    local lookVector = cameraCF.LookVector
     
-    -- Tính toán vận tốc
-    local velocity = Vector3.new(0, 0, 0)
+    -- Tính toán vector di chuyển dựa trên phím được nhấn
+    local moveVector = Vector3.new(0, 0, 0)
     
+    if moveKeys.W then
+        moveVector = moveVector + cameraCF.LookVector
+    end
+    if moveKeys.S then
+        moveVector = moveVector - cameraCF.LookVector
+    end
+    if moveKeys.A then
+        moveVector = moveVector - cameraCF.RightVector
+    end
+    if moveKeys.D then
+        moveVector = moveVector + cameraCF.RightVector
+    end
+    
+    -- Chuẩn hóa vector nếu có di chuyển
     if moveVector.Magnitude > 0 then
+        moveVector = moveVector.Unit
         flySpeed = math.min(flySpeed + acceleration, maxFlySpeed)
-        
-        -- Tính dot product để xác định hướng di chuyển tương đối với camera
-        local dotProduct = moveVector:Dot(lookVector)
-        
-        -- Áp dụng chuyển động ngang và dọc
-        local verticalComponent = lookVector.Y * flySpeed * (dotProduct > 0 and 1 or -1)
-        velocity = moveVector * flySpeed
-        velocity = velocity + Vector3.new(0, verticalComponent, 0)
     else
         flySpeed = 5
     end
     
-    bodyVelocity.Velocity = velocity
+    -- Áp dụng vận tốc
+    bodyVelocity.Velocity = moveVector * flySpeed
 end)
